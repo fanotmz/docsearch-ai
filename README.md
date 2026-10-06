@@ -2,7 +2,7 @@
 
 Local document search and grounded question answering, built with Spring AI, Angular and PostgreSQL/pgvector.
 
-**Status: foundation prepared.** PDF ingestion and RAG are planned; they are not available yet. The current UI displays the backend connection state and a library placeholder. A successful health response does not certify that Ollama or document search is working.
+**Status: DOCSEARCH-03 implemented.** The backend accepts text-based PDF uploads and stores one extracted page per Spring AI `Document`. Chunking, embeddings, search and RAG are later roadmap items. The current UI displays the backend connection state and a library placeholder. A successful health response does not certify that Ollama or document search is working.
 
 ## Stack
 
@@ -34,6 +34,26 @@ Open http://localhost:4200. The backend is available at http://localhost:8080/ap
 The foundation starts without Ollama. No model download or inference runs at startup unless the optional smoke is enabled. The vector extension is installed by Flyway; the vector table will be added after the real embedding dimension is measured.
 
 Stop with `docker compose down`. Database data remains in the named volume. Changing PostgreSQL credentials in `.env` does not change credentials inside an existing initialized volume.
+
+## PDF upload (DOCSEARCH-03)
+
+Upload a text-based PDF with the `file` multipart field:
+
+```bash
+curl -F "file=@./example.pdf" http://localhost:8082/api/v1/documents
+```
+
+PowerShell:
+
+```powershell
+curl.exe -F "file=@$PWD\example.pdf" http://localhost:8082/api/v1/documents
+```
+
+The upload limit is 20 MB per file and 21 MB per request. The response contains `documentId`, the normalized original `filename`, `pageCount` and the `READY` status. Extraction preserves one page per Spring AI `Document`; durable `document_pages` rows contain the extracted page text and its 1-based `page_number`.
+
+The application-owned page metadata contract is `docsearch.document_id`, `docsearch.source` (the normalized original filename) and `docsearch.page_number` (starting at 1). It is independent of incidental metadata keys emitted by the PDF reader.
+
+Malformed PDFs and PDFs with no extractable text are recorded as failed `Document`/`IngestionJob` lifecycles and return a deterministic 422 response. Empty uploads return 400; unsupported media types and non-PDF content return 415; oversized requests return 413. DOCSEARCH-03 accepts text PDFs only: it does not perform OCR, chunking, embeddings, vector indexing, search or RAG. A PDF with some blank pages is retained page-for-page when at least one page contains text; an image-only PDF is rejected.
 
 ## Development
 
@@ -97,7 +117,7 @@ CI requires Docker and deliberately fails when the integration test cannot start
 
 ## Planned MVP
 
-Text PDF import → page-preserving chunks → dense embeddings → pgvector retrieval → Spring AI RAG → document/page citations. Single-user local application; no OCR, web search, autonomous tools or conversation memory in V1. Only redistributable documents may be included in the demonstration corpus.
+Text PDF import → page-preserving extraction → page-aware chunking → dense embeddings → pgvector retrieval → Spring AI RAG → document/page citations. Single-user local application; no OCR, web search, autonomous tools or conversation memory in V1. Only redistributable documents may be included in the demonstration corpus.
 
 ## Third-party notices
 

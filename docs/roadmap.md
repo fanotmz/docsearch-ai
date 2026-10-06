@@ -1,7 +1,7 @@
 # DocSearch AI roadmap
 
 - DOCSEARCH-02 — Local AI integration with Ollama
-- DOCSEARCH-03 — PDF upload and extraction by page
+- DOCSEARCH-03 — PDF upload and extraction by page (implemented)
 - DOCSEARCH-04 — Chunking and vector indexing with source metadata
 - DOCSEARCH-05 — Semantic document search
 - DOCSEARCH-06 — Grounded answers, citations and insufficient-evidence handling
