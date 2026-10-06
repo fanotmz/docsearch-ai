@@ -1,7 +1,6 @@
 package be.fanotmz.docsearch;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -10,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import be.fanotmz.docsearch.ingestion.DocumentIngestionService;
 import com.jayway.jsonpath.JsonPath;
 import org.junit.jupiter.api.Test;
 import org.springframework.ai.chat.client.ChatClient;
@@ -51,7 +49,6 @@ class FoundationIntegrationTest {
     @Autowired ChatClient.Builder chatClientBuilder;
     @Autowired EmbeddingModel embeddingModel;
     @Autowired MockMvc mockMvc;
-    @Autowired DocumentIngestionService ingestionService;
 
     @Test
     void startsWithNativeAiClientsAndMigratesTheVectorExtensionWithoutOllama() {
@@ -97,12 +94,15 @@ class FoundationIntegrationTest {
         assertThat(pages).extracting(page -> page.get("page_number")).containsExactly(1, 2, 3);
         assertThat(pages).extracting(page -> page.get("source"))
                 .containsExactly("fixture.pdf", "fixture.pdf", "fixture.pdf");
-        assertThat(pages).extracting(page -> page.get("content"))
-                .anyMatch(content -> content.toString().contains("DOCSEARCH_PAGE_ONE_ALPHA"));
-        assertThat(pages).extracting(page -> page.get("content"))
-                .anyMatch(content -> content.toString().contains("DOCSEARCH_PAGE_TWO_BETA"));
-        assertThat(pages).extracting(page -> page.get("content"))
-                .anyMatch(content -> content.toString().contains("DOCSEARCH_PAGE_THREE_GAMMA"));
+        assertThat(pages.get(0).get("content")).asString()
+                .contains("DOCSEARCH_PAGE_ONE_ALPHA")
+                .doesNotContain("DOCSEARCH_PAGE_TWO_BETA", "DOCSEARCH_PAGE_THREE_GAMMA");
+        assertThat(pages.get(1).get("content")).asString()
+                .contains("DOCSEARCH_PAGE_TWO_BETA")
+                .doesNotContain("DOCSEARCH_PAGE_ONE_ALPHA", "DOCSEARCH_PAGE_THREE_GAMMA");
+        assertThat(pages.get(2).get("content")).asString()
+                .contains("DOCSEARCH_PAGE_THREE_GAMMA")
+                .doesNotContain("DOCSEARCH_PAGE_ONE_ALPHA", "DOCSEARCH_PAGE_TWO_BETA");
     }
 
     @Test
@@ -119,41 +119,51 @@ class FoundationIntegrationTest {
     }
 
     @Test
-    void rejectsPdfWithoutExtractableTextAndPersistsFailedLifecycle() throws Exception {
+    void rejectsPdfWithoutExtractableTextThroughTheApiAndPersistsFailedLifecycle() throws Exception {
         byte[] pdf = new ClassPathResource("fixtures/docsearch-03-no-text.pdf").getInputStream().readAllBytes();
         long documentsBefore = jdbc.queryForObject("SELECT count(*) FROM documents", Long.class);
 
-        assertThatThrownBy(() -> ingestionService.ingest(
-                new MockMultipartFile("file", "image-only.pdf", "application/pdf", pdf)))
-                .hasMessageContaining("no extractable text");
+        mockMvc.perform(multipart("/api/v1/documents")
+                        .file(new MockMultipartFile("file", "no-text.pdf", "application/pdf", pdf)))
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(jsonPath("$.code").value("NO_EXTRACTABLE_TEXT"));
 
         assertThat(jdbc.queryForObject("SELECT count(*) FROM documents", Long.class))
                 .isEqualTo(documentsBefore + 1);
-        Map<String, Object> failed = jdbc.queryForMap(
-                "SELECT d.status AS document_status, j.status AS job_status, j.error_code "
-                        + "FROM documents d JOIN ingestion_jobs j ON j.document_id = d.id "
-                        + "ORDER BY d.created_at DESC LIMIT 1");
-        assertThat(failed.get("document_status")).isEqualTo("FAILED");
-        assertThat(failed.get("job_status")).isEqualTo("FAILED");
-        assertThat(failed.get("error_code")).isEqualTo("NO_EXTRACTABLE_TEXT");
+        assertLatestFailedLifecycle("NO_EXTRACTABLE_TEXT");
     }
 
     @Test
-    void malformedPdfFailsAfterTheIngestionJobHasStarted() {
+    void malformedPdfReturns422ThroughTheApiAndPersistsFailedLifecycle() throws Exception {
         long documentsBefore = jdbc.queryForObject("SELECT count(*) FROM documents", Long.class);
 
-        assertThatThrownBy(() -> ingestionService.ingest(
-                new MockMultipartFile("file", "broken.pdf", "application/pdf", "%PDF-1.4\nnot complete".getBytes())))
-                .hasMessageContaining("could not be read");
+        mockMvc.perform(multipart("/api/v1/documents")
+                        .file(new MockMultipartFile(
+                                "file", "broken.pdf", "application/pdf", "%PDF-1.4\nnot complete".getBytes())))
+                .andExpect(status().isUnprocessableEntity())
+                .andExpect(jsonPath("$.code").value("MALFORMED_PDF"));
 
         assertThat(jdbc.queryForObject("SELECT count(*) FROM documents", Long.class))
                 .isEqualTo(documentsBefore + 1);
+        assertLatestFailedLifecycle("MALFORMED_PDF");
+    }
+
+    @Test
+    void rejectsPdfContentSpoofedByTheDeclaredMediaType() throws Exception {
+        mockMvc.perform(multipart("/api/v1/documents")
+                        .file(new MockMultipartFile(
+                                "file", "spoofed.pdf", "application/pdf", "plain text".getBytes())))
+                .andExpect(status().isUnsupportedMediaType())
+                .andExpect(jsonPath("$.code").value("NOT_PDF"));
+    }
+
+    private void assertLatestFailedLifecycle(String errorCode) {
         Map<String, Object> failed = jdbc.queryForMap(
                 "SELECT d.status AS document_status, j.status AS job_status, j.error_code "
                         + "FROM documents d JOIN ingestion_jobs j ON j.document_id = d.id "
                         + "ORDER BY d.created_at DESC LIMIT 1");
         assertThat(failed.get("document_status")).isEqualTo("FAILED");
         assertThat(failed.get("job_status")).isEqualTo("FAILED");
-        assertThat(failed.get("error_code")).isEqualTo("MALFORMED_PDF");
+        assertThat(failed.get("error_code")).isEqualTo(errorCode);
     }
 }

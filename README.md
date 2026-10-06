@@ -29,7 +29,7 @@ docker compose up --build -d
 docker compose logs -f backend
 ```
 
-Open http://localhost:4200. The backend is available at http://localhost:8080/api/v1/system; database health is exposed at http://localhost:8080/actuator/health. Ports are bound to localhost. Default database credentials are for local development only.
+Open http://localhost:4200. The Docker-exposed backend API is available at http://localhost:8082/api/v1/system; Docker-exposed database health is at http://localhost:8082/actuator/health. Ports are bound to localhost. Default database credentials are for local development only.
 
 The foundation starts without Ollama. No model download or inference runs at startup unless the optional smoke is enabled. The vector extension is installed by Flyway; the vector table will be added after the real embedding dimension is measured.
 
@@ -53,7 +53,7 @@ The upload limit is 20 MB per file and 21 MB per request. The response contains 
 
 The application-owned page metadata contract is `docsearch.document_id`, `docsearch.source` (the normalized original filename) and `docsearch.page_number` (starting at 1). It is independent of incidental metadata keys emitted by the PDF reader.
 
-Malformed PDFs and PDFs with no extractable text are recorded as failed `Document`/`IngestionJob` lifecycles and return a deterministic 422 response. Empty uploads return 400; unsupported media types and non-PDF content return 415; oversized requests return 413. DOCSEARCH-03 accepts text PDFs only: it does not perform OCR, chunking, embeddings, vector indexing, search or RAG. A PDF with some blank pages is retained page-for-page when at least one page contains text; an image-only PDF is rejected.
+Malformed PDFs and PDFs with no extractable text are recorded as failed `Document`/`IngestionJob` lifecycles and return a deterministic 422 response. Empty uploads return 400; unsupported media types and non-PDF content return 415; oversized requests return 413. DOCSEARCH-03 accepts text PDFs only: it does not perform OCR, chunking, embeddings, vector indexing, search or RAG. A PDF with some blank pages is retained page-for-page when at least one page contains text. PDFs with no extractable text, including scanned/image-only PDFs without a text layer, are rejected because OCR is outside V1.
 
 ## Development
 
@@ -111,7 +111,7 @@ For container access to Ollama, `.env` uses `host.docker.internal`. Loopback-onl
 
 ## Validation
 
-Frontend production build has been executed successfully. XML/YAML/JSON configuration and Unix wrapper syntax have been checked. Backend compilation, Testcontainers, container startup and real Ollama smoke remain to be executed in a Java 21/Docker environment. No RAG performance or accuracy result is claimed.
+Backend Maven verification and its PostgreSQL/Testcontainers integration test pass. The frontend production build and configuration syntax checks pass, and the affected backend/container builds pass. GitHub CI runs the backend, frontend and container checks. DOCSEARCH-02 separately qualified the explicit real-model Ollama smoke; DOCSEARCH-03 PDF ingestion tests do not require Ollama or perform inference. No RAG, search-quality or application-performance claim is made.
 
 CI requires Docker and deliberately fails when the integration test cannot start its database; it does not silently skip it. CI does not download models. See [foundation checks](docs/foundation-checks.md).
 
