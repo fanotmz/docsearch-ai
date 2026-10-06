@@ -58,12 +58,15 @@ The Angular development server proxies API requests to port 8082 when using Dock
 
 ## Optional real-model smoke
 
-This is a connectivity test, not a RAG quality benchmark. Install Ollama on the development host and download the models explicitly:
+This is a connectivity test, not a RAG quality benchmark. Install Ollama on the development host and ensure the models used by the smoke are available:
 
 ```bash
-ollama pull bge-m3
+ollama pull qwen3.5:9b
+ollama pull embeddinggemma:300m
 ollama list
 ```
+
+BGE-M3 remains the architectural embedding candidate for the future vector index, but it was not downloaded or qualified in DOCSEARCH-02. The validation used the already-installed `embeddinggemma:300m` only as a provisional local smoke model; the command below does not qualify BGE-M3.
 
 With PostgreSQL running, launch the backend directly on the same host as Ollama:
 
