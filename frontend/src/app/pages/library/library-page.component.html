@@ -1,0 +1,38 @@
+<section class="intro">
+  <span class="eyebrow">DOCSEARCH AI</span>
+  <h1>Vos documents.<br><span>Des réponses sourcées.</span></h1>
+  <p>Importez des PDF textuels, retrouvez les passages utiles et revenez à leur source.</p>
+</section>
+
+<section class="panel upload-panel" aria-labelledby="upload-title">
+  <div class="section-heading"><div><span class="eyebrow small">IMPORTER</span><h2 id="upload-title">Ajouter un document</h2></div><span class="limit">PDF · 20 Mo max</span></div>
+  <div class="upload-body">
+    <label class="file-picker" for="pdf-file">
+      <span class="document-icon" aria-hidden="true">PDF</span>
+      <span><strong>{{ selectedFile?.name || 'Choisir un fichier PDF' }}</strong><small>Les PDF scannés sans couche texte nécessitent de l’OCR, non disponible en V1.</small></span>
+    </label>
+    <input id="pdf-file" type="file" accept=".pdf,application/pdf" (change)="onFileSelected($event)">
+    <button class="primary" type="button" [disabled]="!selectedFile || uploading()" (click)="upload()">
+      @if (uploading()) { Import en cours… } @else { Importer le PDF }
+    </button>
+  </div>
+  @if (success()) { <p class="feedback success" role="status">{{ success() }}</p> }
+  @if (error()) { <p class="feedback error" role="alert">{{ error() }}</p> }
+</section>
+
+<section class="panel library-panel" aria-labelledby="library-title">
+  <div class="section-heading"><div><span class="eyebrow small">DOCUMENTS</span><h2 id="library-title">Votre bibliothèque</h2></div><button type="button" (click)="loadDocuments()" [disabled]="loading()">Actualiser</button></div>
+  @if (loading()) { <div class="state"><p>Chargement de votre bibliothèque…</p></div> }
+  @else if (documents().length === 0) {
+    <div class="state empty-state"><div class="document-icon large" aria-hidden="true">+</div><h3>Votre bibliothèque est vide</h3><p>Commencez par importer un PDF textuel pour pouvoir le rechercher et lui poser des questions.</p></div>
+  } @else {
+    <div class="document-list">
+      @for (document of documents(); track document.documentId) {
+        <article class="document-row">
+          <div class="document-main"><span class="document-icon small-icon" aria-hidden="true">PDF</span><div><h3>{{ document.filename }}</h3><p>{{ document.pageCount }} {{ document.pageCount === 1 ? 'page' : 'pages' }} · {{ document.createdAt | date:'dd/MM/yyyy HH:mm' }}</p></div></div>
+          <span class="status" [class.ready]="document.status === 'READY'" [class.failed]="document.status === 'FAILED'">{{ statusLabel(document.status) }}</span>
+        </article>
+      }
+    </div>
+  }
+</section>

@@ -2,7 +2,7 @@
 
 Local document search and grounded question answering, built with Spring AI, Angular and PostgreSQL/pgvector.
 
-**Status: DOCSEARCH-06 implemented and locally qualified.** The backend accepts text-based PDF uploads, stores one extracted page per Spring AI `Document`, splits each page independently with `TokenTextSplitter`, indexes chunks in pgvector with BGE-M3, exposes semantic search and provides grounded answers with backend-validated citations. Formal retrieval and answer evaluation remain later roadmap items. The current UI displays the backend connection state and a library placeholder. A successful health response does not certify search or answer quality.
+**Status: DOCSEARCH-07 implemented and locally qualified.** The backend accepts text-based PDF uploads, stores one extracted page per Spring AI `Document`, splits each page independently with `TokenTextSplitter`, indexes chunks in pgvector with BGE-M3, exposes semantic search and provides grounded answers with backend-validated citations. The Angular UI now provides a persistent document library, PDF import, semantic search and grounded Q&A views. Formal retrieval and answer evaluation remain later roadmap items. A successful health response does not certify search or answer quality.
 
 ## Stack
 
@@ -107,6 +107,12 @@ The Q&A endpoint uses `QA_TOP_K=5` and accepts questions up to 2,000 characters.
 
 The production chat profile is Ollama `qwen3.5:9b`, while retrieval reuses the qualified BGE-M3 embedding profile. Retrieved text is delimited as untrusted evidence; instructions inside documents cannot override the grounding policy. The backend makes at most one chat-generation call per request and rejects malformed output, missing citations, fabricated source IDs and generation failures with distinct 5xx errors. Structural citation validity does not prove that the cited text semantically supports the answer; formal evaluation belongs to DOCSEARCH-08. DOCSEARCH-06 does not add conversation memory, reranking, query rewriting, tools, Internet search, OCR or an Angular Q&A UI.
 
+## Angular local UI (DOCSEARCH-07)
+
+The Angular application provides three routed views: `/library`, `/search` and `/qa`, with `/` redirecting to the library. The library uploads text-based PDFs through `POST /api/v1/documents`, reloads persisted summaries from `GET /api/v1/documents`, and shows filename, page count, creation time and PROCESSING/READY/FAILED status. The search view calls `POST /api/v1/search` with a bounded topK and labels the returned value as a similarity score, not answer confidence. The Q&A view calls `POST /api/v1/qa`, displays plain-text answers and renders only backend-resolved citation objects.
+
+The UI keeps backend online/offline state visible, disables duplicate submissions, handles empty/loading/error states, and uses Angular text interpolation rather than unsafe HTML for document, user and model text. It is a local single-user interface; it does not provide deletion, PDF viewing, OCR, authentication, conversation history or a search-quality guarantee.
+
 ## Development
 
 Requirements: JDK 21, Node 24.19.0 and Docker.
@@ -126,7 +132,7 @@ npm ci
 npm start
 ```
 
-The Angular development server proxies API requests to port 8082 when using Docker. The container still listens on port 8080 internally. On Windows, use `mvnw.cmd` instead of `./mvnw`. The first wrapper execution downloads Maven; dependency and image downloads also require Internet access.
+The Angular development server proxy targets a backend running on localhost:8080. With Docker, open the frontend at port 4200 and use its same-origin `/api` proxy; the externally exposed backend API is available directly on port 8082. The container still listens on port 8080 internally. On Windows, use `mvnw.cmd` instead of `./mvnw`. The first wrapper execution downloads Maven; dependency and image downloads also require Internet access.
 
 ## Optional real-model smoke
 
@@ -163,7 +169,7 @@ For container access to Ollama, `.env` uses `host.docker.internal`. Loopback-onl
 
 ## Validation
 
-Backend Maven verification and its PostgreSQL/Testcontainers integration tests pass, including deterministic vector indexing, semantic search and DOCSEARCH-06 grounded-Q&A tests with a deterministic ChatModel. The frontend production build and configuration syntax checks pass, and the affected backend/container builds pass. GitHub CI runs the backend, frontend and container checks; CI does not require Ollama. DOCSEARCH-02 separately qualified the explicit real-model smoke, DOCSEARCH-04 qualified real BGE-M3 indexing, DOCSEARCH-05 qualified real BGE-M3 search and DOCSEARCH-06 was separately qualified locally with real Qwen + BGE-M3. No formal retrieval-quality or answer-quality claim is made.
+Backend Maven verification and its PostgreSQL/Testcontainers integration tests pass, including deterministic vector indexing, semantic search, document-library support and DOCSEARCH-06 grounded-Q&A tests with a deterministic ChatModel. The frontend production build and configuration syntax checks pass, and the affected backend/container builds pass. GitHub CI runs the backend, frontend and container checks; CI does not require Ollama. DOCSEARCH-02 separately qualified the explicit real-model smoke, DOCSEARCH-04 qualified real BGE-M3 indexing, DOCSEARCH-05 qualified real BGE-M3 search, DOCSEARCH-06 was separately qualified locally with real Qwen + BGE-M3 and DOCSEARCH-07 was separately qualified locally through the Angular UI. No formal retrieval-quality or answer-quality claim is made.
 
 CI requires Docker and deliberately fails when the integration test cannot start its database; it does not silently skip it. CI does not download models. See [foundation checks](docs/foundation-checks.md).
 

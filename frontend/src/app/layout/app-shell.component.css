@@ -1,0 +1,25 @@
+:host { display: block; min-height: 100vh; }
+.workspace { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: 100vh; }
+.sidebar { background: #102f2e; color: #e2eeeb; padding: 32px 22px; display: flex; flex-direction: column; }
+.brand { display: flex; align-items: center; gap: 11px; color: inherit; text-decoration: none; font-size: 21px; font-weight: 650; letter-spacing: -.7px; }
+.brand-mark { display: grid; place-items: center; width: 34px; height: 38px; border: 1px solid #68958c; border-radius: 8px; color: #a4d3c7; }
+.brand-ai { color: #99cbbd; font-weight: 400; }
+.nav-label { font-size: 10px; letter-spacing: 1.6px; color: #92aaa4; margin: 52px 10px 18px; }
+nav { display: grid; gap: 6px; }
+.nav-item { color: #8ca59e; text-decoration: none; padding: 13px 12px; border-radius: 7px; font-size: 13px; }
+.nav-item:hover, .nav-item.active { background: #244844; color: #e1f4ec; }
+.sidebar-note { margin-top: auto; padding: 24px 10px 0; color: #9ab4ac; font-size: 12px; }
+.local-dot, .dot { display: inline-block; height: 7px; width: 7px; background: #a8b2ae; border-radius: 50%; margin-right: 7px; }
+.local-dot, .online { background: #74b396; }.offline { background: #b97d49; }
+main { padding: 0 54px; max-width: 1320px; width: 100%; box-sizing: border-box; }
+header { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid #dfe5dd; }
+.breadcrumb { color: #788079; font-size: 12px; }.breadcrumb strong { color: #3e5149; font-weight: 500; }
+.connection { color: #68746b; font-size: 12px; white-space: nowrap; }
+.page-content { padding-top: 42px; min-height: 560px; }
+.notice { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 15px 20px; border: 1px solid #e2d9c7; border-radius: 8px; margin-top: 20px; background: #faf6ee; color: #705b3c; font-size: 12px; }
+.notice p { margin: 0; }
+button { font: inherit; color: #4e644f; background: #fff; border: 1px solid #b8c4b4; border-radius: 5px; padding: 8px 13px; cursor: pointer; white-space: nowrap; }
+button:hover { background: #f4f7f1; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid #6b9884; outline-offset: 3px; }
+footer { padding: 32px 0; color: #9ca69b; font-size: 11px; letter-spacing: .4px; }
+@media (max-width: 800px) { .workspace { grid-template-columns: 1fr; } .sidebar { padding: 20px 24px; } .nav-label, .sidebar-note { display: none; } nav { display: flex; gap: 4px; margin-top: 20px; overflow-x: auto; } .nav-item { white-space: nowrap; } main { padding: 0 24px; } header { min-height: 68px; flex-wrap: wrap; padding: 15px 0; } .page-content { padding-top: 28px; } .notice { flex-wrap: wrap; } }

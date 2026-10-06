@@ -6,7 +6,7 @@ Local single-user application for text PDF search and independent grounded quest
 
 ## Application boundaries
 
-One Spring Boot backend, one Angular frontend and PostgreSQL. Ollama runs on the host by default. Backend packages will be organized by feature: documents, ingestion, search, qa and configuration. The initial system endpoint only describes the current application phase.
+One Spring Boot backend, one Angular frontend and PostgreSQL. Ollama runs on the host by default. Backend packages are organized by feature: documents, ingestion, search, qa and configuration. The Angular UI owns presentation and calls application-owned backend contracts; `GET /api/v1/documents` exposes summaries only, while upload, search and Q&A continue to use their existing endpoints. The system endpoint describes the current local MVP phase and connectivity capability.
 
 ## Native Spring AI integration
 

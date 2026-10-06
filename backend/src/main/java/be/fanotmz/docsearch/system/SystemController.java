@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SystemController {
     @GetMapping
     public SystemInfo info() {
-        return new SystemInfo("DocSearch AI", "FOUNDATION", false);
+        return new SystemInfo("DocSearch AI", "LOCAL_MVP", true);
     }
 
     public record SystemInfo(String name, String phase, boolean documentSearchAvailable) {}
