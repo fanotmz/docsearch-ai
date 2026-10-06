@@ -1,0 +1,18 @@
+<section class="page-intro"><span class="eyebrow">QUESTIONS & RÉPONSES</span><h1>Posez une question à vos documents.</h1><p>Les réponses sont limitées aux passages récupérés et accompagnées de leurs sources.</p></section>
+
+<section class="panel question-form" aria-labelledby="question-title">
+  <h2 id="question-title">Votre question</h2>
+  <form (ngSubmit)="submit()"><label for="question">Question à poser</label><textarea id="question" name="question" [(ngModel)]="question" maxlength="2000" rows="4" placeholder="Ex. Quelle extension PostgreSQL fournit la recherche vectorielle ?"></textarea><div class="form-footer"><span>La génération locale peut prendre plusieurs dizaines de secondes.</span><button class="primary" type="submit" [disabled]="loading()">{{ loading() ? 'Génération en cours…' : 'Obtenir une réponse' }}</button></div></form>
+  @if (error()) { <p class="feedback error" role="alert">{{ error() }}</p> }
+</section>
+
+@if (loading()) { <div class="state busy" role="status"><span class="loader" aria-hidden="true"></span><p>Le modèle local prépare une réponse sourcée…</p><small>Une seule génération est demandée pour cette question.</small></div> }
+@if (response(); as result) {
+  <section class="answer" aria-labelledby="answer-title">
+    <div class="answer-heading"><span class="eyebrow">RÉPONSE</span><span class="status" [class.answered]="result.status === 'ANSWERED'">{{ result.status === 'ANSWERED' ? 'Réponse sourcée' : 'Preuves insuffisantes' }}</span></div>
+    <h2 id="answer-title">{{ result.answer }}</h2>
+    @if (result.status === 'ANSWERED' && result.citations.length > 0) {
+      <div class="citations"><h3>Sources utilisées</h3>@for (citation of result.citations; track citation.id) { <article class="citation"><span class="citation-id">{{ citation.id }}</span><div><strong>{{ citation.source }}</strong><p>Page {{ citation.pageNumber }} · Chunk {{ citation.chunkIndex }}</p></div></article> }</div>
+    } @else { <p class="no-citations">Aucune source n’est disponible pour cette réponse.</p> }
+  </section>
+}

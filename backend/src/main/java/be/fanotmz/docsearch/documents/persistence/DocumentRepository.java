@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import be.fanotmz.docsearch.documents.DocumentStatus;
+import be.fanotmz.docsearch.documents.DocumentSummary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -45,4 +46,18 @@ public class DocumentRepository {
                 """, (resultSet, rowNumber) -> resultSet.getObject("id", UUID.class),
                 DocumentStatus.READY.name());
     }
+
+    public List<DocumentSummary> findAllSummaries() {
+        return jdbc.query("""
+                SELECT id, original_filename, page_count, status, created_at
+                FROM documents
+                ORDER BY created_at DESC, id DESC
+                """, (resultSet, rowNumber) -> new DocumentSummary(
+                resultSet.getObject("id", UUID.class),
+                resultSet.getString("original_filename"),
+                resultSet.getInt("page_count"),
+                DocumentStatus.valueOf(resultSet.getString("status")),
+                resultSet.getTimestamp("created_at").toInstant()));
+    }
+
 }

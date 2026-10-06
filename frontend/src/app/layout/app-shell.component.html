@@ -1,0 +1,35 @@
+<div class="workspace">
+  <aside class="sidebar" aria-label="Navigation principale">
+    <a class="brand" routerLink="/library" aria-label="DocSearch AI, bibliothèque">
+      <span class="brand-mark" aria-hidden="true">D</span>
+      <span>DocSearch<span class="brand-ai"> AI</span></span>
+    </a>
+    <p class="nav-label">ESPACE DOCUMENTAIRE</p>
+    <nav aria-label="Sections">
+      <a class="nav-item" routerLink="/library" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Bibliothèque</a>
+      <a class="nav-item" routerLink="/search" routerLinkActive="active">Recherche</a>
+      <a class="nav-item" routerLink="/qa" routerLinkActive="active">Questions & réponses</a>
+    </nav>
+    <div class="sidebar-note"><span class="local-dot"></span> Espace local</div>
+  </aside>
+  <main>
+    <header>
+      <span class="breadcrumb">Votre espace / <strong>DocSearch AI</strong></span>
+      <div class="connection" role="status" aria-live="polite">
+        @switch (connection) {
+          @case ('online') { <span class="dot online"></span> Service disponible }
+          @case ('offline') { <span class="dot offline"></span> Service indisponible }
+          @default { <span class="dot"></span> Connexion en cours }
+        }
+      </div>
+    </header>
+    <div class="page-content"><ng-content /></div>
+    @if (connection === 'offline') {
+      <div class="notice" role="alert">
+        <p>Le service ne répond pas. Vérifiez qu’il est démarré, puis réessayez.</p>
+        <button type="button" (click)="retry.emit()">Réessayer</button>
+      </div>
+    }
+    <footer>Retrouver. Comprendre. Vérifier.</footer>
+  </main>
+</div>

@@ -1,0 +1,21 @@
+<section class="page-intro"><span class="eyebrow">RECHERCHE SÉMANTIQUE</span><h1>Retrouvez le bon passage.</h1><p>Posez une question ou décrivez ce que vous cherchez dans vos documents indexés.</p></section>
+
+<section class="panel search-form" aria-labelledby="search-title">
+  <h2 id="search-title">Rechercher dans les documents</h2>
+  <form (ngSubmit)="submit()">
+    <label for="search-query">Votre recherche</label>
+    <div class="form-row"><input id="search-query" name="query" type="search" [(ngModel)]="query" placeholder="Ex. extension PostgreSQL pour la recherche vectorielle" maxlength="2000"><select id="search-top-k" name="topK" [(ngModel)]="topK" aria-label="Nombre de résultats"><option [ngValue]="5">5 résultats</option><option [ngValue]="10">10 résultats</option><option [ngValue]="20">20 résultats</option></select><button class="primary" type="submit" [disabled]="loading()">{{ loading() ? 'Recherche…' : 'Rechercher' }}</button></div>
+  </form>
+  <p class="hint">Le score affiché mesure la similarité de récupération. Ce n’est pas une probabilité ni une confiance dans une réponse.</p>
+  @if (error()) { <p class="feedback error" role="alert">{{ error() }}</p> }
+</section>
+
+@if (loading()) { <div class="state">Recherche en cours…</div> }
+@else if (results() !== null && results()!.length === 0) { <div class="state">Aucun passage correspondant n’a été trouvé.</div> }
+@else if (results(); as searchResults) {
+  <section class="results" aria-labelledby="results-title"><div class="results-heading"><h2 id="results-title">{{ searchResults.length }} résultat{{ searchResults.length > 1 ? 's' : '' }}</h2><span>Classés par similarité</span></div>
+    @for (result of searchResults; track result.documentId + '-' + result.pageNumber + '-' + result.chunkIndex; let rank = $index) {
+      <article class="result-card"><div class="result-meta"><span class="rank">{{ rank + 1 }}</span><span>{{ result.source }}</span><span>Page {{ result.pageNumber }}</span><span>Chunk {{ result.chunkIndex }}</span><span class="score">Similarité {{ result.score === null ? 'indisponible' : (result.score | number:'1.2-3') }}</span></div><p>{{ result.content }}</p></article>
+    }
+  </section>
+}
