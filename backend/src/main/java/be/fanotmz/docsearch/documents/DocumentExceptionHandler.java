@@ -2,6 +2,9 @@ package be.fanotmz.docsearch.documents;
 
 import java.util.Map;
 
+import be.fanotmz.docsearch.qa.GenerationFailureException;
+import be.fanotmz.docsearch.qa.InvalidModelOutputException;
+import be.fanotmz.docsearch.qa.QaValidationException;
 import be.fanotmz.docsearch.search.SearchValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,6 +46,27 @@ public class DocumentExceptionHandler {
     ResponseEntity<Map<String, String>> handleSearchValidation(SearchValidationException exception) {
         return ResponseEntity.badRequest().body(Map.of(
                 "code", exception.getCode(),
+                "message", exception.getMessage()));
+    }
+
+    @ExceptionHandler(QaValidationException.class)
+    ResponseEntity<Map<String, String>> handleQaValidation(QaValidationException exception) {
+        return ResponseEntity.badRequest().body(Map.of(
+                "code", exception.getCode(),
+                "message", exception.getMessage()));
+    }
+
+    @ExceptionHandler(InvalidModelOutputException.class)
+    ResponseEntity<Map<String, String>> handleInvalidModelOutput(InvalidModelOutputException exception) {
+        return ResponseEntity.internalServerError().body(Map.of(
+                "code", "INVALID_MODEL_OUTPUT",
+                "message", exception.getMessage()));
+    }
+
+    @ExceptionHandler(GenerationFailureException.class)
+    ResponseEntity<Map<String, String>> handleGenerationFailure(GenerationFailureException exception) {
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(Map.of(
+                "code", "GENERATION_FAILED",
                 "message", exception.getMessage()));
     }
 }

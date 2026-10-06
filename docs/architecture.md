@@ -10,7 +10,7 @@ One Spring Boot backend, one Angular frontend and PostgreSQL. Ollama runs on the
 
 ## Native Spring AI integration
 
-Use PagePdfDocumentReader with one page per Document, TokenTextSplitter, EmbeddingModel, PgVectorStore, VectorStoreDocumentRetriever, RetrievalAugmentationAdvisor and ChatClient. Keep page metadata through the entire pipeline. Start with dense search and a bounded context; evaluate retrieval before adding query rewriting or reranking.
+Use PagePdfDocumentReader with one page per Document, TokenTextSplitter for page-local chunking, EmbeddingModel for embeddings, and PgVectorStore/VectorStore for storage and retrieval. Semantic retrieval is explicit so the exact retrieved evidence set remains available for temporary source IDs and structural citation validation. Grounded generation uses ChatClient. RetrievalAugmentationAdvisor was evaluated but is intentionally not used for DOCSEARCH-06 because retaining the exact evidence set is required. Keep page metadata through the entire pipeline. Start with dense search and a bounded context; evaluate retrieval before adding query rewriting or reranking.
 
 ## Data and lifecycle
 
@@ -22,7 +22,11 @@ Only READY documents are searchable. DOCSEARCH-05 reads READY document IDs from 
 
 ## Answers
 
-No retrieved context means deterministic abstention before generation. A model answer references temporary source IDs; the backend resolves them only against the supplied chunks. Structural reference validation does not certify semantic support. Human evaluation must separately check correctness, coverage and abstention.
+DOCSEARCH-06 exposes grounded Q&A through an explicit retrieval-and-generation service. It deliberately does not use `RetrievalAugmentationAdvisor` for the answer call: Spring AI 2.0.1 advisors can augment a prompt, but the explicit path keeps the exact bounded evidence set available for temporary source IDs and structural citation validation. The service reuses `SemanticSearchService` with fixed `QA_TOP_K=5`, so READY filtering remains centralized.
+
+Retrieved chunks receive request-local IDs `S1`, `S2`, ... in retrieval order. The system policy treats evidence as data, requires the model to answer only from supplied evidence, and requires `[S<number>]` markers in an `ANSWERED` response. Spring AI 2.0.1 `ChatClient.Builder` performs one `.call().content()` generation call; `BeanOutputConverter<GroundedModelOutput>` parses the model-owned `status` and `answer` fields. The backend validates status, non-empty answer, citation presence and source-ID membership, then resolves citations from its own evidence map. Model filenames, page numbers and document IDs are never trusted.
+
+No retrieved context returns deterministic `INSUFFICIENT_EVIDENCE` before ChatClient invocation. Model-requested abstention is normalized to the same application-owned response. Invalid structured output and unknown citations return `INVALID_MODEL_OUTPUT`; chat transport failures return `GENERATION_FAILED`. Structural citation validity does not certify semantic support. Human evaluation must separately check correctness, coverage and abstention.
 
 ## Foundation decisions
 
