@@ -14,7 +14,9 @@ Use PagePdfDocumentReader with one page per Document, TokenTextSplitter, Embeddi
 
 ## Data and lifecycle
 
-The next migration introduces Document and IngestionJob. Chunk content, metadata and embeddings belong to a single PgVectorStore-compatible table. Do not create that table before measuring the embedding dimension. Never mix models in one embedding profile. Reindex all documents when the embedding model changes.
+DOCSEARCH-03 introduces `documents`, `ingestion_jobs` and `document_pages`. A document starts as PROCESSING, has one ingestion job, and becomes READY only after page extraction and page persistence complete; parser or text-availability failures leave both records in a FAILED state. `document_pages` is durable source text, not a chunk or vector index: it preserves one row per extracted PDF page so DOCSEARCH-04 can chunk later without requiring the source PDF to be uploaded again. No PDF binary is retained.
+
+Every persisted page has an application-owned document identity, source label and 1-based page number. The corresponding Spring AI `Document` metadata contract is `docsearch.document_id`, `docsearch.source` and `docsearch.page_number`; later stages must not depend on incidental PDF reader metadata keys. Chunk content, metadata and embeddings belong to a single PgVectorStore-compatible table in a later migration. Do not create that table before measuring the embedding dimension. Never mix models in one embedding profile. Reindex all documents when the embedding model changes.
 
 Only READY documents are searchable. Failed ingestion must clean partial vectors. Ingestion is serialized and no database transaction remains open during inference.
 
@@ -29,6 +31,8 @@ No retrieved context means deterministic abstention before generation. A model a
 - Angular 22.2.x with npm lockfile and Node 24.19.0.
 - Native Ollama auto-configuration, without an automatically initialized vector store.
 - No model calls at normal startup; real-model smoke is explicit and opt-in.
+- DOCSEARCH-03 persists extracted text pages but does not retain source PDF binaries.
+- DOCSEARCH-03 does not provide OCR, chunking, embeddings, vector indexing, search or RAG.
 - No imported code from previous projects in this foundation.
 
 Container tags are explicit but do not pin immutable image digests. Record and pin those digests during qualification, together with model digests. Performance and accelerator compatibility remain unqualified.
