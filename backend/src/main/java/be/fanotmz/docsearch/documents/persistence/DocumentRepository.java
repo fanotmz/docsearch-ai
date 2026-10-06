@@ -2,6 +2,7 @@ package be.fanotmz.docsearch.documents.persistence;
 
 import java.time.Instant;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.UUID;
 
 import be.fanotmz.docsearch.documents.DocumentStatus;
@@ -33,5 +34,15 @@ public class DocumentRepository {
         jdbc.update("""
                 UPDATE documents SET status = ?, updated_at = ? WHERE id = ?
                 """, DocumentStatus.FAILED.name(), Timestamp.from(now), id);
+    }
+
+    public List<UUID> findReadyDocumentIds() {
+        return jdbc.query("""
+                SELECT id
+                FROM documents
+                WHERE status = ?
+                ORDER BY id
+                """, (resultSet, rowNumber) -> resultSet.getObject("id", UUID.class),
+                DocumentStatus.READY.name());
     }
 }

@@ -2,6 +2,7 @@ package be.fanotmz.docsearch.documents;
 
 import java.util.Map;
 
+import be.fanotmz.docsearch.search.SearchValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -36,5 +37,12 @@ public class DocumentExceptionHandler {
         return ResponseEntity.status(HttpStatus.PAYLOAD_TOO_LARGE).body(Map.of(
                 "code", "FILE_TOO_LARGE",
                 "message", "The PDF must not exceed 20 MB"));
+    }
+
+    @ExceptionHandler(SearchValidationException.class)
+    ResponseEntity<Map<String, String>> handleSearchValidation(SearchValidationException exception) {
+        return ResponseEntity.badRequest().body(Map.of(
+                "code", exception.getCode(),
+                "message", exception.getMessage()));
     }
 }
