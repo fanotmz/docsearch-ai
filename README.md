@@ -54,14 +54,13 @@ npm ci
 npm start
 ```
 
-The Angular development server proxies API requests to port 8080. On Windows, use `mvnw.cmd` instead of `./mvnw`. The first wrapper execution downloads Maven; dependency and image downloads also require Internet access.
+The Angular development server proxies API requests to port 8082 when using Docker. The container still listens on port 8080 internally. On Windows, use `mvnw.cmd` instead of `./mvnw`. The first wrapper execution downloads Maven; dependency and image downloads also require Internet access.
 
 ## Optional real-model smoke
 
 This is a connectivity test, not a RAG quality benchmark. Install Ollama on the development host and download the models explicitly:
 
 ```bash
-ollama pull qwen3.5:9b-q4_K_M
 ollama pull bge-m3
 ollama list
 ```
@@ -70,10 +69,10 @@ With PostgreSQL running, launch the backend directly on the same host as Ollama:
 
 ```bash
 cd backend
-./mvnw spring-boot:run -Dspring-boot.run.arguments=--docsearch.smoke.enabled=true
+./mvnw spring-boot:run -Dspring-boot.run.arguments="--docsearch.smoke.enabled=true --spring.ai.ollama.chat.model=qwen3.5:9b --spring.ai.ollama.embedding.model=embeddinggemma:300m"
 ```
 
-Expected logs: `Embedding smoke passed: dimensions=...` and `Chat smoke passed`. An empty/non-finite vector or an incorrect response marker causes startup to fail. Record the actual embedding dimension, model digests, Ollama version, RAM and elapsed time before implementing the vector schema.
+Expected logs include embedding dimensions and elapsed time, plus non-empty chat output and elapsed time. An empty/non-finite vector causes startup to fail. Record the actual embedding dimension, model digests, Ollama version, RAM and elapsed time before implementing the vector schema.
 
 Default inference settings use a bounded 8K chat context, 512 output tokens, no automatic model pulls, no retries and unloading after each request. These are initial settings, not a validated hardware profile. The exact marker smoke can fail even when the model is reachable; inspect the logs before concluding there is a transport failure.
 
