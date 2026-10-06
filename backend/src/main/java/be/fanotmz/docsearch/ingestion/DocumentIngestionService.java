@@ -7,6 +7,7 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.locks.ReentrantLock;
 
 import be.fanotmz.docsearch.documents.DocumentStatus;
 import be.fanotmz.docsearch.documents.DocumentUploadException;
@@ -16,7 +17,10 @@ import be.fanotmz.docsearch.documents.persistence.DocumentRepository;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.reader.pdf.PagePdfDocumentReader;
 import org.springframework.ai.reader.pdf.config.PdfDocumentReaderConfig;
+import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.core.io.FileSystemResource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,22 +28,40 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class DocumentIngestionService {
     private static final byte[] PDF_SIGNATURE = "%PDF-".getBytes(java.nio.charset.StandardCharsets.US_ASCII);
+    private static final Logger log = LoggerFactory.getLogger(DocumentIngestionService.class);
 
     private final DocumentRepository documentRepository;
     private final DocumentPageRepository pageRepository;
     private final IngestionJobRepository jobRepository;
+    private final PageChunkingService chunkingService;
+    private final VectorStore vectorStore;
+    private final ReentrantLock ingestionLock = new ReentrantLock();
 
     public DocumentIngestionService(
             DocumentRepository documentRepository,
             DocumentPageRepository pageRepository,
-            IngestionJobRepository jobRepository) {
+            IngestionJobRepository jobRepository,
+            PageChunkingService chunkingService,
+            VectorStore vectorStore) {
         this.documentRepository = documentRepository;
         this.pageRepository = pageRepository;
         this.jobRepository = jobRepository;
+        this.chunkingService = chunkingService;
+        this.vectorStore = vectorStore;
     }
 
     public DocumentUploadResponse ingest(MultipartFile file) {
         validateUpload(file);
+        ingestionLock.lock();
+        try {
+            return ingestSerialized(file);
+        }
+        finally {
+            ingestionLock.unlock();
+        }
+    }
+
+    private DocumentUploadResponse ingestSerialized(MultipartFile file) {
 
         String filename = normalizedFilename(file.getOriginalFilename());
         String contentType = StringUtils.hasText(file.getContentType())
@@ -51,17 +73,34 @@ public class DocumentIngestionService {
         documentRepository.create(documentId, filename, contentType, startedAt);
         jobRepository.create(jobId, documentId, startedAt);
 
-        Path temporaryPdf = null;
+        List<Document> pages;
         try {
-            temporaryPdf = Files.createTempFile("docsearch-upload-", ".pdf");
-            file.transferTo(temporaryPdf);
-            List<Document> pages = new PagePdfDocumentReader(
-                    new FileSystemResource(temporaryPdf), PdfDocumentReaderConfig.defaultConfig()).get();
+            Path temporaryPdf = Files.createTempFile("docsearch-upload-", ".pdf");
+            try {
+                file.transferTo(temporaryPdf);
+                pages = new PagePdfDocumentReader(
+                        new FileSystemResource(temporaryPdf), PdfDocumentReaderConfig.defaultConfig()).get();
+            }
+            finally {
+                Files.deleteIfExists(temporaryPdf);
+            }
             if (pages.isEmpty() || pages.stream().noneMatch(page -> StringUtils.hasText(page.getText()))) {
                 throw new DocumentUploadException(
                         "NO_EXTRACTABLE_TEXT", "The PDF contains no extractable text; OCR is not available");
             }
+        }
+        catch (DocumentUploadException exception) {
+            fail(documentId, jobId, exception);
+            throw exception;
+        }
+        catch (Exception exception) {
+            DocumentUploadException failure = new DocumentUploadException(
+                    "MALFORMED_PDF", "The PDF could not be read as a text PDF", exception);
+            fail(documentId, jobId, failure);
+            throw failure;
+        }
 
+        try {
             for (int index = 0; index < pages.size(); index++) {
                 int pageNumber = index + 1;
                 Document normalizedPage = pages.get(index).mutate()
@@ -75,30 +114,49 @@ public class DocumentIngestionService {
                         filename,
                         normalizedPage.getText() == null ? "" : normalizedPage.getText());
             }
-            Instant completedAt = Instant.now();
-            documentRepository.markReady(documentId, pages.size(), completedAt);
-            jobRepository.markSucceeded(jobId, completedAt);
-            return new DocumentUploadResponse(documentId, filename, pages.size(), DocumentStatus.READY);
-        }
-        catch (DocumentUploadException exception) {
-            fail(documentId, jobId, exception);
-            throw exception;
         }
         catch (Exception exception) {
             DocumentUploadException failure = new DocumentUploadException(
-                    "MALFORMED_PDF", "The PDF could not be read as a text PDF", exception);
+                    "PERSISTENCE_FAILED", "The extracted pages could not be persisted", exception);
             fail(documentId, jobId, failure);
             throw failure;
         }
-        finally {
-            if (temporaryPdf != null) {
-                try {
-                    Files.deleteIfExists(temporaryPdf);
-                }
-                catch (IOException ignored) {
-                    // The temporary file is not part of the durable document state.
-                }
+
+        List<String> indexedChunkIds = List.of();
+        try {
+            List<DocumentPageRepository.StoredPage> storedPages = pageRepository.findByDocumentId(documentId);
+            List<Document> chunks = chunkingService.chunk(storedPages, documentId);
+            indexedChunkIds = chunks.stream().map(Document::getId).toList();
+            if (chunks.isEmpty()) {
+                throw new IllegalStateException("No chunks were produced from the persisted pages");
             }
+            long indexingStarted = System.nanoTime();
+            vectorStore.add(chunks);
+            long indexingElapsedMillis = (System.nanoTime() - indexingStarted) / 1_000_000;
+            log.info("Indexed document {} with {} chunks in {} ms", documentId, chunks.size(), indexingElapsedMillis);
+            Instant completedAt = Instant.now();
+            documentRepository.markReady(documentId, storedPages.size(), completedAt);
+            jobRepository.markSucceeded(jobId, completedAt);
+            return new DocumentUploadResponse(documentId, filename, storedPages.size(), DocumentStatus.READY);
+        }
+        catch (Exception exception) {
+            cleanupPartialVectors(indexedChunkIds, exception);
+            DocumentUploadException failure = new DocumentUploadException(
+                    "INDEXING_FAILED", "The document could not be indexed", exception);
+            fail(documentId, jobId, failure);
+            throw failure;
+        }
+    }
+
+    private void cleanupPartialVectors(List<String> chunkIds, Exception indexingFailure) {
+        if (chunkIds.isEmpty()) {
+            return;
+        }
+        try {
+            vectorStore.delete(chunkIds);
+        }
+        catch (Exception cleanupFailure) {
+            indexingFailure.addSuppressed(cleanupFailure);
         }
     }
 
