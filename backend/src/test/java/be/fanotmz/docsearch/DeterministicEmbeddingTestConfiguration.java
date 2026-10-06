@@ -2,6 +2,7 @@ package be.fanotmz.docsearch;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.ai.document.Document;
 import org.springframework.ai.embedding.AbstractEmbeddingModel;
@@ -50,7 +51,18 @@ public class DeterministicEmbeddingTestConfiguration {
 
         private float[] vector(String text) {
             float[] vector = new float[DIMENSIONS];
-            vector[Math.floorMod(text.hashCode(), DIMENSIONS)] = 1.0f;
+            String normalized = text.toLowerCase(Locale.ROOT);
+            if (normalized.contains("database") || normalized.contains("postgresql")
+                    || normalized.contains("pgvector")) {
+                vector[0] = 1.0f;
+            }
+            else if (normalized.contains("bird") || normalized.contains("migration")) {
+                vector[0] = 0.6f;
+                vector[1] = 0.8f;
+            }
+            else {
+                vector[2] = 1.0f;
+            }
             return vector;
         }
     }

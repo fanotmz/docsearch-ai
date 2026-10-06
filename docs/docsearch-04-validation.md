@@ -65,4 +65,4 @@ On 2026-10-06, the repository-owned three-page fixture `docsearch-03-pages.pdf` 
 
 A second normal backend startup returned health HTTP 200 and produced no embedding, generation or indexing log entry. No model call is required for normal startup or deterministic CI tests.
 
-DOCSEARCH-04 does not provide a semantic-search API, retrieval ranking evaluation, OCR, chunking across pages, reranking, question answering or RAG.
+DOCSEARCH-04 does not provide retrieval ranking evaluation, OCR, chunking across pages, reranking, question answering or RAG. DOCSEARCH-05 adds the separate semantic-search endpoint.

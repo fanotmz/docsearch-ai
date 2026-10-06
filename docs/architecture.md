@@ -18,7 +18,7 @@ DOCSEARCH-03 introduces `documents`, `ingestion_jobs` and `document_pages`. DOCS
 
 Every persisted page has an application-owned document identity, source label and 1-based page number. Each page is split independently with Spring AI `TokenTextSplitter`, so chunks never cross page boundaries. The vector metadata contract is `docsearch.document_id`, `docsearch.source`, `docsearch.page_number` and page-local zero-based `docsearch.chunk_index`; later stages must not depend on incidental PDF reader metadata keys. Chunk content, metadata and embeddings live together in `docsearch_vector_store`, compatible with Spring AI 2.0.1 PgVectorStore and dimension 1024 for the qualified BGE-M3 profile. Spring AI schema auto-initialization is disabled; Flyway owns the table. Never mix models in one embedding profile. Reindex all documents when the embedding model or dimension changes.
 
-Only READY documents are searchable. Failed indexing removes vectors already written for the affected document while retaining source pages for diagnostics/reindexing. Ingestion is serialized in local V1 and no database transaction remains open during embedding inference.
+Only READY documents are searchable. DOCSEARCH-05 reads READY document IDs from the relational lifecycle table and passes them as an `IN` metadata filter to Spring AI `VectorStore.similaritySearch(SearchRequest)`, so stale or partial vectors cannot leak into search results. Failed indexing removes vectors already written for the affected document while retaining source pages for diagnostics/reindexing. Ingestion is serialized in local V1 and no database transaction remains open during embedding inference.
 
 ## Answers
 
@@ -32,7 +32,7 @@ No retrieved context means deterministic abstention before generation. A model a
 - Native Ollama auto-configuration, with a manually configured PgVectorStore and Flyway-owned schema; Spring AI schema auto-initialization remains disabled.
 - No model calls at normal startup; real-model smoke is explicit and opt-in.
 - DOCSEARCH-03 persists extracted text pages but does not retain source PDF binaries.
-- DOCSEARCH-03 does not provide OCR, chunking, embeddings, vector indexing, search or RAG. DOCSEARCH-04 adds page-aware chunking and vector indexing only; semantic search and RAG remain later stages.
+- DOCSEARCH-03 does not provide OCR, chunking, embeddings, vector indexing, search or RAG. DOCSEARCH-04 adds page-aware chunking and vector indexing. DOCSEARCH-05 adds semantic search only; generation, reranking and RAG remain later stages.
 - No imported code from previous projects in this foundation.
 
 Container tags are explicit but do not pin immutable image digests. Record and pin those digests during qualification, together with model digests. Performance and accelerator compatibility remain unqualified.
