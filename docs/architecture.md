@@ -22,7 +22,11 @@ Only READY documents are searchable. DOCSEARCH-05 reads READY document IDs from 
 
 ## Answers
 
-No retrieved context means deterministic abstention before generation. A model answer references temporary source IDs; the backend resolves them only against the supplied chunks. Structural reference validation does not certify semantic support. Human evaluation must separately check correctness, coverage and abstention.
+DOCSEARCH-06 exposes grounded Q&A through an explicit retrieval-and-generation service. It deliberately does not use `RetrievalAugmentationAdvisor` for the answer call: Spring AI 2.0.1 advisors can augment a prompt, but the explicit path keeps the exact bounded evidence set available for temporary source IDs and structural citation validation. The service reuses `SemanticSearchService` with fixed `QA_TOP_K=5`, so READY filtering remains centralized.
+
+Retrieved chunks receive request-local IDs `S1`, `S2`, ... in retrieval order. The system policy treats evidence as data, requires the model to answer only from supplied evidence, and requires `[S<number>]` markers in an `ANSWERED` response. Spring AI 2.0.1 `ChatClient.Builder` performs one `.call().content()` generation call; `BeanOutputConverter<GroundedModelOutput>` parses the model-owned `status` and `answer` fields. The backend validates status, non-empty answer, citation presence and source-ID membership, then resolves citations from its own evidence map. Model filenames, page numbers and document IDs are never trusted.
+
+No retrieved context returns deterministic `INSUFFICIENT_EVIDENCE` before ChatClient invocation. Model-requested abstention is normalized to the same application-owned response. Invalid structured output and unknown citations return `INVALID_MODEL_OUTPUT`; chat transport failures return `GENERATION_FAILED`. Structural citation validity does not certify semantic support. Human evaluation must separately check correctness, coverage and abstention.
 
 ## Foundation decisions
 

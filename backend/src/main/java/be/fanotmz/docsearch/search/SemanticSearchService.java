@@ -59,6 +59,10 @@ public class SemanticSearchService {
         return new SemanticSearchResponse(query, results);
     }
 
+    public SemanticSearchResponse search(String query, int topK) {
+        return search(new SemanticSearchRequest(query, topK));
+    }
+
     private String validateQuery(String query) {
         if (!StringUtils.hasText(query)) {
             throw new SearchValidationException("INVALID_QUERY", "Query must not be blank");
