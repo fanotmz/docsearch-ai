@@ -10,7 +10,7 @@ One Spring Boot backend, one Angular frontend and PostgreSQL. Ollama runs on the
 
 ## Native Spring AI integration
 
-Use PagePdfDocumentReader with one page per Document, TokenTextSplitter, EmbeddingModel, PgVectorStore, VectorStoreDocumentRetriever, RetrievalAugmentationAdvisor and ChatClient. Keep page metadata through the entire pipeline. Start with dense search and a bounded context; evaluate retrieval before adding query rewriting or reranking.
+Use PagePdfDocumentReader with one page per Document, TokenTextSplitter for page-local chunking, EmbeddingModel for embeddings, and PgVectorStore/VectorStore for storage and retrieval. Semantic retrieval is explicit so the exact retrieved evidence set remains available for temporary source IDs and structural citation validation. Grounded generation uses ChatClient. RetrievalAugmentationAdvisor was evaluated but is intentionally not used for DOCSEARCH-06 because retaining the exact evidence set is required. Keep page metadata through the entire pipeline. Start with dense search and a bounded context; evaluate retrieval before adding query rewriting or reranking.
 
 ## Data and lifecycle
 

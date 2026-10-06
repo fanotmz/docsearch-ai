@@ -31,7 +31,7 @@ docker compose logs -f backend
 
 Open http://localhost:4200. The Docker-exposed backend API is available at http://localhost:8082/api/v1/system; Docker-exposed database health is at http://localhost:8082/actuator/health. Ports are bound to localhost. Default database credentials are for local development only.
 
-The foundation starts without Ollama inference. No model download or inference runs at startup unless the optional smoke or an upload is enabled. Flyway installs pgvector and creates the DOCSEARCH-04 vector table at the qualified BGE-M3 dimension.
+Normal application startup performs no model inference. PDF upload performs BGE-M3 embedding/indexing; semantic search performs query embedding; grounded Q&A performs retrieval embedding plus at most one Qwen generation. The optional smoke explicitly performs model inference, while automatic model pulling remains disabled. Flyway installs pgvector and creates the DOCSEARCH-04 vector table at the qualified BGE-M3 dimension.
 
 Stop with `docker compose down`. Database data remains in the named volume. Changing PostgreSQL credentials in `.env` does not change credentials inside an existing initialized volume.
 
@@ -163,7 +163,7 @@ For container access to Ollama, `.env` uses `host.docker.internal`. Loopback-onl
 
 ## Validation
 
-Backend Maven verification and its PostgreSQL/Testcontainers integration tests pass, including deterministic vector indexing and semantic search without Ollama. The frontend production build and configuration syntax checks pass, and the affected backend/container builds pass. GitHub CI runs the backend, frontend and container checks. DOCSEARCH-02 separately qualified the explicit real-model Ollama smoke, while DOCSEARCH-04 qualified real BGE-M3 indexing and DOCSEARCH-05 qualified real BGE-M3 search; DOCSEARCH-03/04/05 CI tests do not require Ollama. No formal retrieval-quality, RAG or application-performance claim is made.
+Backend Maven verification and its PostgreSQL/Testcontainers integration tests pass, including deterministic vector indexing, semantic search and DOCSEARCH-06 grounded-Q&A tests with a deterministic ChatModel. The frontend production build and configuration syntax checks pass, and the affected backend/container builds pass. GitHub CI runs the backend, frontend and container checks; CI does not require Ollama. DOCSEARCH-02 separately qualified the explicit real-model smoke, DOCSEARCH-04 qualified real BGE-M3 indexing, DOCSEARCH-05 qualified real BGE-M3 search and DOCSEARCH-06 was separately qualified locally with real Qwen + BGE-M3. No formal retrieval-quality or answer-quality claim is made.
 
 CI requires Docker and deliberately fails when the integration test cannot start its database; it does not silently skip it. CI does not download models. See [foundation checks](docs/foundation-checks.md).
 
