@@ -1,0 +1,11 @@
+TITLE: Paper Bridge Archive Protocol
+AUTHOR: DocSearch AI benchmark team
+
+=== PAGE 1 ===
+The Paper Bridge Archive uses the fictional Q-17 checksum for blue-folder transfers. Q-17 is calculated from the first, fourth, and seventh characters of the folder label. A transfer passes only when the checksum is written in the upper-right corner of the intake card. The blue-folder protocol is different from the red-folder retention protocol.
+
+=== PAGE 2 ===
+Red folders in the Paper Bridge Archive have a retention period of 18 years. After 18 years, a curator may either transfer a folder to the stone vault or mark it for supervised destruction. The retention clock starts on the date of final approval, not the date of first receipt. Blue folders have no fixed retention period in this protocol.
+
+=== PAGE 3 ===
+The archive's stone vault has three aisles. Aisle C stores maps, Aisle F stores field journals, and Aisle R stores repair records. The weekly vault inspection occurs on Monday at 09:30. A vault inspection checks the aisle seal and humidity card; it does not recalculate the Q-17 checksum.
