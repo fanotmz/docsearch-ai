@@ -22,7 +22,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-docsearch}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-docsearch-local}
       OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
-      OLLAMA_CHAT_MODEL: ${OLLAMA_CHAT_MODEL:-qwen3.5:9b-q4_K_M}
+      OLLAMA_CHAT_MODEL: ${OLLAMA_CHAT_MODEL:-qwen3.5:9b}
       OLLAMA_EMBEDDING_MODEL: ${OLLAMA_EMBEDDING_MODEL:-bge-m3}
     extra_hosts:
       - "host.docker.internal:host-gateway"
