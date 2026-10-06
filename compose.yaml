@@ -1,0 +1,41 @@
+name: docsearch-ai
+services:
+  postgres:
+    image: pgvector/pgvector:0.8.1-pg16-bookworm
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-docsearch}
+      POSTGRES_USER: ${POSTGRES_USER:-docsearch}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-docsearch-local}
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-docsearch}
+      POSTGRES_USER: ${POSTGRES_USER:-docsearch}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-docsearch-local}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      OLLAMA_CHAT_MODEL: ${OLLAMA_CHAT_MODEL:-qwen3.5:9b-q4_K_M}
+      OLLAMA_EMBEDDING_MODEL: ${OLLAMA_EMBEDDING_MODEL:-bge-m3}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "127.0.0.1:8082:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+  frontend:
+    build: ./frontend
+    ports:
+      - "127.0.0.1:4200:80"
+    depends_on:
+      - backend
+volumes:
+  postgres-data:
