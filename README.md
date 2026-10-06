@@ -2,7 +2,7 @@
 
 Local document search and grounded question answering, built with Spring AI, Angular and PostgreSQL/pgvector.
 
-**Status: DOCSEARCH-03 implemented.** The backend accepts text-based PDF uploads and stores one extracted page per Spring AI `Document`. Chunking, embeddings, search and RAG are later roadmap items. The current UI displays the backend connection state and a library placeholder. A successful health response does not certify that Ollama or document search is working.
+**Status: DOCSEARCH-04 implemented and locally qualified.** The backend accepts text-based PDF uploads, stores one extracted page per Spring AI `Document`, splits each page independently with `TokenTextSplitter` and indexes chunks in pgvector with BGE-M3. Semantic search, retrieval evaluation and RAG remain later roadmap items. The current UI displays the backend connection state and a library placeholder. A successful health response does not certify search quality.
 
 ## Stack
 
@@ -31,7 +31,7 @@ docker compose logs -f backend
 
 Open http://localhost:4200. The Docker-exposed backend API is available at http://localhost:8082/api/v1/system; Docker-exposed database health is at http://localhost:8082/actuator/health. Ports are bound to localhost. Default database credentials are for local development only.
 
-The foundation starts without Ollama. No model download or inference runs at startup unless the optional smoke is enabled. The vector extension is installed by Flyway; the vector table will be added after the real embedding dimension is measured.
+The foundation starts without Ollama inference. No model download or inference runs at startup unless the optional smoke or an upload is enabled. Flyway installs pgvector and creates the DOCSEARCH-04 vector table at the qualified BGE-M3 dimension.
 
 Stop with `docker compose down`. Database data remains in the named volume. Changing PostgreSQL credentials in `.env` does not change credentials inside an existing initialized volume.
 
@@ -54,6 +54,14 @@ The upload limit is 20 MB per file and 21 MB per request. The response contains 
 The application-owned page metadata contract is `docsearch.document_id`, `docsearch.source` (the normalized original filename) and `docsearch.page_number` (starting at 1). It is independent of incidental metadata keys emitted by the PDF reader.
 
 Malformed PDFs and PDFs with no extractable text are recorded as failed `Document`/`IngestionJob` lifecycles and return a deterministic 422 response. Empty uploads return 400; unsupported media types and non-PDF content return 415; oversized requests return 413. DOCSEARCH-03 accepts text PDFs only: it does not perform OCR, chunking, embeddings, vector indexing, search or RAG. A PDF with some blank pages is retained page-for-page when at least one page contains text. PDFs with no extractable text, including scanned/image-only PDFs without a text layer, are rejected because OCR is outside V1.
+
+## Page-aware chunking and indexing (DOCSEARCH-04)
+
+After page persistence, each page is split independently with Spring AI `TokenTextSplitter`; a chunk never crosses a PDF page boundary. The reproducible baseline is `chunkSize=800`, `minChunkSizeChars=200`, `minChunkLengthToEmbed=10`, `maxNumChunks=1000` and `keepSeparator=true`. Each vector row preserves `docsearch.document_id`, `docsearch.source`, 1-based `docsearch.page_number` and page-local zero-based `docsearch.chunk_index`.
+
+The qualified production embedding is Ollama `bge-m3:latest`, digest `7907646426070047a77226ac3e684fbbe8410524f7b4a74d02837e43f2146bab`, dimension 1024. Flyway owns the `docsearch_vector_store` table; Spring AI PgVectorStore schema auto-initialization is disabled. A document becomes `READY` only after all chunks are indexed. Indexing failures mark both lifecycle records `FAILED` and remove vectors already written for that document. Changing the embedding model or dimension requires rebuilding the vector index.
+
+DOCSEARCH-04 does not expose a semantic-search API and does not implement OCR, retrieval ranking, reranking, question answering or RAG. See [DOCSEARCH-04 validation](docs/docsearch-04-validation.md) for the local qualification record and verification command.
 
 ## Development
 
@@ -86,7 +94,7 @@ ollama pull embeddinggemma:300m
 ollama list
 ```
 
-BGE-M3 remains the architectural embedding candidate for the future vector index, but it was not downloaded or qualified in DOCSEARCH-02. The validation used the already-installed `embeddinggemma:300m` only as a provisional local smoke model; the command below does not qualify BGE-M3.
+DOCSEARCH-02 used the already-installed `embeddinggemma:300m` only as a provisional connectivity/smoke model. DOCSEARCH-04 separately qualified and uses `bge-m3:latest` for the vector index; the two models must not be mixed in one index. The command below remains the DOCSEARCH-02 smoke and does not replace the BGE-M3 qualification.
 
 With PostgreSQL running, launch the backend directly on the same host as Ollama:
 
@@ -111,7 +119,7 @@ For container access to Ollama, `.env` uses `host.docker.internal`. Loopback-onl
 
 ## Validation
 
-Backend Maven verification and its PostgreSQL/Testcontainers integration test pass. The frontend production build and configuration syntax checks pass, and the affected backend/container builds pass. GitHub CI runs the backend, frontend and container checks. DOCSEARCH-02 separately qualified the explicit real-model Ollama smoke; DOCSEARCH-03 PDF ingestion tests do not require Ollama or perform inference. No RAG, search-quality or application-performance claim is made.
+Backend Maven verification and its PostgreSQL/Testcontainers integration tests pass, including deterministic vector indexing without Ollama. The frontend production build and configuration syntax checks pass, and the affected backend/container builds pass. GitHub CI runs the backend, frontend and container checks. DOCSEARCH-02 separately qualified the explicit real-model Ollama smoke, while DOCSEARCH-04 locally qualified real BGE-M3 indexing; DOCSEARCH-03/04 CI tests do not require Ollama. No RAG, search-quality or application-performance claim is made.
 
 CI requires Docker and deliberately fails when the integration test cannot start its database; it does not silently skip it. CI does not download models. See [foundation checks](docs/foundation-checks.md).
 

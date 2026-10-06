@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.UUID;
 
 import com.jayway.jsonpath.JsonPath;
+import be.fanotmz.docsearch.documents.persistence.DocumentPageRepository;
+import be.fanotmz.docsearch.ingestion.PageChunkingService;
 import org.junit.jupiter.api.Test;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.embedding.EmbeddingModel;
@@ -22,6 +24,7 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.context.annotation.Import;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -29,6 +32,7 @@ import org.testcontainers.utility.DockerImageName;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@Import(DeterministicEmbeddingTestConfiguration.class)
 @Testcontainers
 class FoundationIntegrationTest {
     @Container
@@ -49,6 +53,7 @@ class FoundationIntegrationTest {
     @Autowired ChatClient.Builder chatClientBuilder;
     @Autowired EmbeddingModel embeddingModel;
     @Autowired MockMvc mockMvc;
+    @Autowired PageChunkingService chunkingService;
 
     @Test
     void startsWithNativeAiClientsAndMigratesTheVectorExtensionWithoutOllama() {
@@ -103,6 +108,31 @@ class FoundationIntegrationTest {
         assertThat(pages.get(2).get("content")).asString()
                 .contains("DOCSEARCH_PAGE_THREE_GAMMA")
                 .doesNotContain("DOCSEARCH_PAGE_ONE_ALPHA", "DOCSEARCH_PAGE_TWO_BETA");
+
+        List<Map<String, Object>> vectors = jdbc.queryForList("""
+                SELECT content,
+                       metadata ->> 'docsearch.document_id' AS document_id,
+                       metadata ->> 'docsearch.source' AS source,
+                       metadata ->> 'docsearch.page_number' AS page_number,
+                       metadata ->> 'docsearch.chunk_index' AS chunk_index,
+                       embedding::text AS embedding
+                FROM docsearch_vector_store
+                WHERE metadata ->> 'docsearch.document_id' = ?
+                ORDER BY (metadata ->> 'docsearch.page_number')::integer,
+                         (metadata ->> 'docsearch.chunk_index')::integer
+                """, documentId.toString());
+        assertThat(vectors).hasSize(3);
+        assertThat(jdbc.queryForObject(
+                "SELECT vector_dims(embedding) FROM docsearch_vector_store LIMIT 1", Integer.class))
+                .isEqualTo(1024);
+        assertThat(vectors).extracting(vector -> vector.get("document_id"))
+                .containsOnly(documentId.toString());
+        assertThat(vectors).extracting(vector -> vector.get("source"))
+                .containsExactly("fixture.pdf", "fixture.pdf", "fixture.pdf");
+        assertThat(vectors).extracting(vector -> vector.get("page_number"))
+                .containsExactly("1", "2", "3");
+        assertThat(vectors).extracting(vector -> vector.get("chunk_index"))
+                .containsExactly("0", "0", "0");
     }
 
     @Test
@@ -155,6 +185,36 @@ class FoundationIntegrationTest {
                                 "file", "spoofed.pdf", "application/pdf", "plain text".getBytes())))
                 .andExpect(status().isUnsupportedMediaType())
                 .andExpect(jsonPath("$.code").value("NOT_PDF"));
+    }
+
+    @Test
+    void splitsLongPagesIndependentlyWithDeterministicLocalChunkIndexes() {
+        UUID documentId = UUID.randomUUID();
+        String longPage = String.join(" ", java.util.Collections.nCopies(1000, "PAGE_ONE_LONG_TOKEN"));
+        String secondPage = String.join(" ", java.util.Collections.nCopies(1000, "PAGE_TWO_LONG_TOKEN"));
+        List<org.springframework.ai.document.Document> chunks = chunkingService.chunk(List.of(
+                new DocumentPageRepository.StoredPage(1, "fixture.pdf", longPage),
+                new DocumentPageRepository.StoredPage(2, "fixture.pdf", secondPage)), documentId);
+
+        assertThat(chunks).hasSizeGreaterThan(2);
+        assertThat(chunks).allSatisfy(chunk -> {
+            String page = chunk.getMetadata().get("docsearch.page_number").toString();
+            assertThat(chunk.getText()).doesNotContain(page.equals("1") ? "PAGE_TWO_LONG_TOKEN" : "PAGE_ONE_LONG_TOKEN");
+        });
+        List<org.springframework.ai.document.Document> pageOneChunks = chunks.stream()
+                .filter(chunk -> chunk.getMetadata().get("docsearch.page_number").equals(1))
+                .toList();
+        List<org.springframework.ai.document.Document> pageTwoChunks = chunks.stream()
+                .filter(chunk -> chunk.getMetadata().get("docsearch.page_number").equals(2))
+                .toList();
+        assertThat(pageOneChunks).hasSizeGreaterThan(1);
+        assertThat(pageTwoChunks).hasSizeGreaterThan(1);
+        assertThat(pageOneChunks).extracting(chunk -> chunk.getMetadata().get("docsearch.chunk_index"))
+                .containsExactlyElementsOf(java.util.stream.IntStream.range(0, pageOneChunks.size())
+                        .boxed().toList());
+        assertThat(pageTwoChunks).extracting(chunk -> chunk.getMetadata().get("docsearch.chunk_index"))
+                .containsExactlyElementsOf(java.util.stream.IntStream.range(0, pageTwoChunks.size())
+                        .boxed().toList());
     }
 
     private void assertLatestFailedLifecycle(String errorCode) {

@@ -1,6 +1,7 @@
 package be.fanotmz.docsearch.documents.persistence;
 
 import java.util.UUID;
+import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -18,5 +19,20 @@ public class DocumentPageRepository {
                 INSERT INTO document_pages (id, document_id, page_number, source, content)
                 VALUES (?, ?, ?, ?, ?)
                 """, UUID.randomUUID(), documentId, pageNumber, source, content);
+    }
+
+    public List<StoredPage> findByDocumentId(UUID documentId) {
+        return jdbc.query("""
+                SELECT page_number, source, content
+                FROM document_pages
+                WHERE document_id = ?
+                ORDER BY page_number
+                """, (resultSet, rowNumber) -> new StoredPage(
+                resultSet.getInt("page_number"),
+                resultSet.getString("source"),
+                resultSet.getString("content")), documentId);
+    }
+
+    public record StoredPage(int pageNumber, String source, String content) {
     }
 }
