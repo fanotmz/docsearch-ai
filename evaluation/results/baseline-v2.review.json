@@ -23,9 +23,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -52,9 +52,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -81,9 +81,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -110,9 +110,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -139,9 +139,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -168,9 +168,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -197,9 +197,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -226,9 +226,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -255,9 +255,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -284,9 +284,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -313,9 +313,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -342,9 +342,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -383,9 +383,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -424,9 +424,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -465,9 +465,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -506,9 +506,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -520,9 +520,9 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -534,10 +534,10 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
-    "reviewerNotes": ""
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
+    "reviewerNotes": "Correct abstention. The corpus defines the yellow dawn tag and its timing but does not identify who prints or produces the tags."
   },
   {
     "caseId": "U03",
@@ -548,10 +548,10 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
-    "reviewerNotes": ""
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
+    "reviewerNotes": "Correct abstention. The corpus gives Solace's 41-minute scan duration but does not state the total mission duration."
   },
   {
     "caseId": "U04",
@@ -562,9 +562,9 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -576,9 +576,9 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -590,9 +590,9 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -604,9 +604,9 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -618,9 +618,9 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   }
 ]

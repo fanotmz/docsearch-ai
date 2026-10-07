@@ -1,6 +1,6 @@
 # DOCSEARCH-08 evaluation
 
-Status: baseline-v1 reviewed; corrected benchmark-v2 pending execution and independent semantic review.
+Status: DOCSEARCH-08 PASS. Benchmark-v2 completed independent semantic review and passed every pre-registered gate.
 
 DOCSEARCH-08 evaluates the production system frozen through DOCSEARCH-07.
 No retrieval, chunking, prompt, model, topK, vector-store or answer-policy
@@ -23,7 +23,12 @@ hashes are committed in the benchmark definition.
 
 ## Frozen system fingerprint
 
-- Application SHA: `cca96cbfe4b887a7ebb502cafe3f249b19ff7a3f`.
+- Production code baseline: `423e1914fbe0d271af0aff7dad5eb50672b53402`.
+- Benchmark-v1 evaluated application SHA: `cca96cbfe4b887a7ebb502cafe3f249b19ff7a3f`.
+- Benchmark-v2 freeze / evaluated repository SHA:
+  `0df852f3154ed788da26c47c576b3efc9e3fd909`. This commit contains only
+  evaluation definition/harness changes in addition to the production
+  baseline; it does not change production application behavior.
 - Ollama: `0.35.1`.
 - Embedding: `bge-m3:latest`, digest
   `7907646426070047a77226ac3e684fbbe8410524f7b4a74d02837e43f2146bab`,
@@ -54,15 +59,18 @@ Deterministic scorer tests run without Ollama:
 node --test evaluation/tests/scoring.test.mjs
 ```
 
-The real run is reproducible with the isolated environment and:
+The real run is reproducible with the isolated environment and the selected
+benchmark version:
 
 ```powershell
 $env:DOCSEARCH_EVAL_BASE_URL = "http://127.0.0.1:18082"
 $env:DOCSEARCH_EVAL_APP_SHA = (git rev-parse HEAD)
+$env:DOCSEARCH_EVAL_BENCHMARK = "v2"
+$env:DOCSEARCH_EVAL_OUTPUT_PREFIX = "baseline-v2"
 node evaluation/run-benchmark.mjs
 ```
 
-## Automated baseline results
+## Automated benchmark-v1 baseline results
 
 | Retrieval metric | Result | Pre-registered gate |
 |---|---:|---:|
@@ -114,17 +122,19 @@ corpus explicitly states that no green tag is assigned and that Solace does
 not use a polar orbit, so both frozen answers are supported. These cases are
 not genuinely unanswerable. Benchmark-v1 remains immutable.
 
-## Benchmark-v2
+## Benchmark-v2 definition and traceability
 
 Benchmark-v2 preserves the v1 corpus and all corpus hashes, and replaces only
 U02 and U03 with questions whose requested facts are absent: the producer of
 the yellow dawn tags and the total mission duration of Solace. Their
 `goldEvidence` and `requiredFacts` arrays are empty, and their IDs remain
-stable. The v2 definition is frozen before its complete real run. Its human
-semantic review remains pending.
+stable. The v2 definition was frozen before its complete real run, and its
+human semantic review is recorded below.
 
-The final DOCSEARCH-08 verdict remains pending the corrected v2 run and its
-independent semantic review.
+Benchmark-v1 remains immutable. No production change followed its results.
+Benchmark-v2 changed only the U02 and U03 questions; all source and PDF
+corpus file hashes remained identical. The v2 manifest file hash differs
+because its benchmark metadata and cases hash changed.
 
 ## Benchmark-v2 baseline results
 
@@ -145,8 +155,27 @@ Search latency was 25,459 ms median and 36,466 ms p95. Q&A latency was
 65,924 ms median and 87,141 ms p95. All 16 search and 24 Q&A requests
 returned HTTP 200; no HTTP or model failures occurred.
 
-The v2 review artifact remains unreviewed with all human fields null. These
-automated results do not constitute the final DOCSEARCH-08 verdict.
+The v2 review artifact is `evaluation/results/baseline-v2.review.json`.
+
+## Final human semantic review and verdict
+
+The independent v2 review found:
+
+- semantic correctness: 24/24 = 100.0%;
+- completeness: 24/24 = 100.0%;
+- material-claim support: 24/24 = 100.0%;
+- fully-correct rate: 24/24 = 100.0%;
+- human qualification gate: >= 75.0% — PASS.
+
+The pre-registered v2 gates all pass: Hit@1 100.0%, Hit@5 100.0%, MRR@5
+100.0%, complete evidence@5 100.0%, expected-status accuracy 100.0%,
+answerable status accuracy 100.0%, abstention accuracy 100.0%, citation
+precision 100.0%, citation recall 100.0% and citation-complete rate 100.0%.
+
+DOCSEARCH-08 = PASS. This qualifies the frozen V1 against this limited,
+project-owned benchmark-v2; it is not a universal quality guarantee.
+Latency remains visible and non-gated: search median/p95 25,459/36,466 ms
+and Q&A median/p95 65,924/87,141 ms on the local hardware.
 
 ## Result artifacts
 
@@ -154,6 +183,10 @@ automated results do not constitute the final DOCSEARCH-08 verdict.
 - `evaluation/results/baseline-v1.metrics.json`
 - `evaluation/results/baseline-v1.md`
 - `evaluation/results/baseline-v1.review.json`
+- `evaluation/results/baseline-v2.raw.json`
+- `evaluation/results/baseline-v2.metrics.json`
+- `evaluation/results/baseline-v2.md`
+- `evaluation/results/baseline-v2.review.json`
 
 The raw artifact preserves case metadata, search results, model answers,
 citations, HTTP outcomes and timings without machine-specific absolute paths

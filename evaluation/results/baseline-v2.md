@@ -8,7 +8,7 @@ This is a frozen-system baseline. No production retrieval, chunking, prompt, mod
 
 - Documents/pages: 5/15
 - Cases: 24 (16 answerable, 8 unanswerable)
-- Application SHA: `0df852f3154ed788da26c47c576b3efc9e3fd909`
+- Evaluated repository SHA: `0df852f3154ed788da26c47c576b3efc9e3fd909`
 - Ollama: `0.35.1`
 - Embedding: `bge-m3:latest`, digest `7907646426070047a77226ac3e684fbbe8410524f7b4a74d02837e43f2146bab`, dimension 1024
 - Chat: `qwen3.5:9b`, digest `6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7`
@@ -43,9 +43,22 @@ This is a frozen-system baseline. No production retrieval, chunking, prompt, mod
 - Search: {"count":16,"min":300,"median":25459,"p95":36466,"max":36466}
 - Q&A: {"count":24,"min":49850,"median":65924,"p95":87141,"max":138021}
 
-## Human semantic review
+## Final human semantic review
 
-PENDING INDEPENDENT REVIEW. Automated citation validity is not semantic correctness. The committed review artifact leaves semanticCorrect, complete and allMaterialClaimsSupported null for every case.
+- Semantic correctness: 24/24 = 100.0%.
+- Completeness: 24/24 = 100.0%.
+- Material-claim support: 24/24 = 100.0%.
+- Fully-correct rate: 24/24 = 100.0%.
+- Human qualification gate: >= 75.0% — PASS.
+
+U02 and U03 were correctly abstained because the corpus does not identify
+who produces the yellow dawn tags or the total mission duration of Solace.
+
+## Final qualification
+
+DOCSEARCH-08 = PASS. Benchmark-v2 passes every pre-registered retrieval,
+Q&A structural and human semantic gate for this frozen V1 evaluation.
+These project-owned results are not a universal quality guarantee.
 
 ## Execution
 
