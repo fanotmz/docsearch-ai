@@ -126,6 +126,28 @@ semantic review remains pending.
 The final DOCSEARCH-08 verdict remains pending the corrected v2 run and its
 independent semantic review.
 
+## Benchmark-v2 baseline results
+
+Benchmark-v2 was executed once against the isolated evaluation database using
+the frozen application at `0df852f3154ed788da26c47c576b3efc9e3fd909`. The
+corpus manifest SHA-256 is
+`513ea7f36c1a64a7b2dbb05273da8bde1faf7e92d1819a8ed3e673afbc87d7d0` and the
+corrected cases SHA-256 is
+`c8c1dd903f444ce62bd77fef0ad8d06c28f0f5722f8904c5135d2ddc02b21118`.
+
+Automated retrieval metrics were all 100.0%: Hit@1, Hit@3, Hit@5, MRR@5,
+gold-evidence recall@5 and complete-evidence@5. Automated Q&A metrics were
+also all 100.0%: expected-status accuracy (24/24), answerable status accuracy
+(16/16), unanswerable abstention accuracy (8/8), citation precision, citation
+recall and citation-complete rate.
+
+Search latency was 25,459 ms median and 36,466 ms p95. Q&A latency was
+65,924 ms median and 87,141 ms p95. All 16 search and 24 Q&A requests
+returned HTTP 200; no HTTP or model failures occurred.
+
+The v2 review artifact remains unreviewed with all human fields null. These
+automated results do not constitute the final DOCSEARCH-08 verdict.
+
 ## Result artifacts
 
 - `evaluation/results/baseline-v1.raw.json`

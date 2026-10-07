@@ -1,0 +1,626 @@
+[
+  {
+    "caseId": "A01",
+    "expectedStatus": "ANSWERED",
+    "question": "At what time is the Pier 7 tide gate inspected at Cobalt Harbor?",
+    "requiredFacts": [
+      "The Pier 7 tide gate is inspected at 06:40 every morning."
+    ],
+    "goldEvidence": [
+      {
+        "source": "cobalt-harbor-operations.pdf",
+        "page": 1
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "The Pier 7 tide gate at Cobalt Harbor is inspected at 06:40 every morning. [S1]",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+        "source": "cobalt-harbor-operations.pdf",
+        "pageNumber": 1,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A02",
+    "expectedStatus": "ANSWERED",
+    "question": "When does the Cobalt Harbor night shift begin?",
+    "requiredFacts": [
+      "The Cobalt Harbor night shift begins at 22:15."
+    ],
+    "goldEvidence": [
+      {
+        "source": "cobalt-harbor-operations.pdf",
+        "page": 2
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "The Cobalt Harbor night shift begins at 22:15. [S1]",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+        "source": "cobalt-harbor-operations.pdf",
+        "pageNumber": 2,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A03",
+    "expectedStatus": "ANSWERED",
+    "question": "For how many minutes does the glasswing mellifern open after sunrise?",
+    "requiredFacts": [
+      "The glasswing mellifern opens for 18 minutes after sunrise."
+    ],
+    "goldEvidence": [
+      {
+        "source": "ember-valley-research.pdf",
+        "page": 1
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "The glasswing mellifern opens for 18 minutes after sunrise. [S1]",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+        "source": "ember-valley-research.pdf",
+        "pageNumber": 1,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A04",
+    "expectedStatus": "ANSWERED",
+    "question": "What soil conditions does the glasswing mellifern prefer?",
+    "requiredFacts": [
+      "The glasswing mellifern prefers a narrow band of damp, porous soil."
+    ],
+    "goldEvidence": [
+      {
+        "source": "ember-valley-research.pdf",
+        "page": 2
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "The glasswing mellifern prefers a narrow band of damp, porous soil. [S1]",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+        "source": "ember-valley-research.pdf",
+        "pageNumber": 2,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A05",
+    "expectedStatus": "ANSWERED",
+    "question": "What is the orbital period of the Lumen-3 satellite?",
+    "requiredFacts": [
+      "Lumen-3 has an orbital period of 97 minutes."
+    ],
+    "goldEvidence": [
+      {
+        "source": "lumen-orbit-mission.pdf",
+        "page": 1
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "The fictional Lumen-3 satellite follows a polar orbit with an orbital period of 97 minutes. [S1]",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+        "source": "lumen-orbit-mission.pdf",
+        "pageNumber": 1,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A06",
+    "expectedStatus": "ANSWERED",
+    "question": "In which direction does the Aurora relay antenna point during the first half of its contact window?",
+    "requiredFacts": [
+      "The Aurora relay antenna points 18 degrees east during the first half of the contact window."
+    ],
+    "goldEvidence": [
+      {
+        "source": "lumen-orbit-mission.pdf",
+        "page": 2
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "The Aurora relay antenna points 18 degrees east during the first half of its contact window. [S1]",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+        "source": "lumen-orbit-mission.pdf",
+        "pageNumber": 2,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A07",
+    "expectedStatus": "ANSWERED",
+    "question": "Which characters are used to calculate the Paper Bridge Archive Q-17 checksum?",
+    "requiredFacts": [
+      "Q-17 uses the first, fourth and seventh characters of the folder label."
+    ],
+    "goldEvidence": [
+      {
+        "source": "paper-bridge-archive.pdf",
+        "page": 1
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "The Q-17 checksum is calculated from the first, fourth, and seventh characters of the folder label. [S1]",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+        "source": "paper-bridge-archive.pdf",
+        "pageNumber": 1,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A08",
+    "expectedStatus": "ANSWERED",
+    "question": "How long is the retention period for red folders in the Paper Bridge Archive?",
+    "requiredFacts": [
+      "Red folders have a retention period of 18 years."
+    ],
+    "goldEvidence": [
+      {
+        "source": "paper-bridge-archive.pdf",
+        "page": 2
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "Red folders in the Paper Bridge Archive have a retention period of 18 years. [S1]",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+        "source": "paper-bridge-archive.pdf",
+        "pageNumber": 2,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A09",
+    "expectedStatus": "ANSWERED",
+    "question": "What fuse rating is used by the amber inverter in Willow Grid District North?",
+    "requiredFacts": [
+      "The District North amber inverter uses a 32-ampere replacement fuse."
+    ],
+    "goldEvidence": [
+      {
+        "source": "willow-grid-maintenance.pdf",
+        "page": 1
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "The replacement fuse for the amber inverter in District North is rated at 32 amperes. [S1]",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+        "source": "willow-grid-maintenance.pdf",
+        "pageNumber": 1,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A10",
+    "expectedStatus": "ANSWERED",
+    "question": "How often do technicians inspect the ceramic relay in Willow Grid District South?",
+    "requiredFacts": [
+      "The District South ceramic relay is inspected every 21 days."
+    ],
+    "goldEvidence": [
+      {
+        "source": "willow-grid-maintenance.pdf",
+        "page": 2
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "Technicians inspect the ceramic relay in Willow Grid District South every 21 days. [S1]",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+        "source": "willow-grid-maintenance.pdf",
+        "pageNumber": 2,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A11",
+    "expectedStatus": "ANSWERED",
+    "question": "What beacon color indicates a radio failure at the North Basin harbor exercise?",
+    "requiredFacts": [
+      "The emergency beacon flashes violet for a radio failure."
+    ],
+    "goldEvidence": [
+      {
+        "source": "cobalt-harbor-operations.pdf",
+        "page": 3
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "During the North Basin exercise, the emergency beacon flashes violet for a radio failure. [S1]",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+        "source": "cobalt-harbor-operations.pdf",
+        "pageNumber": 3,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A12",
+    "expectedStatus": "ANSWERED",
+    "question": "How long does the separate Solace probe take to complete a scan?",
+    "requiredFacts": [
+      "The Solace probe completes a scan in 41 minutes."
+    ],
+    "goldEvidence": [
+      {
+        "source": "lumen-orbit-mission.pdf",
+        "page": 3
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "The separate Solace probe completes a scan in 41 minutes. [S1]",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+        "source": "lumen-orbit-mission.pdf",
+        "pageNumber": 3,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A13",
+    "expectedStatus": "ANSWERED",
+    "question": "Which ledgers record the Pier 7 tide-gate inspection and the Cobalt Harbor night-shift report?",
+    "requiredFacts": [
+      "The tide-gate inspection is recorded in ledger H-17.",
+      "The night-shift report is recorded in ledger N-22."
+    ],
+    "goldEvidence": [
+      {
+        "source": "cobalt-harbor-operations.pdf",
+        "page": 1
+      },
+      {
+        "source": "cobalt-harbor-operations.pdf",
+        "page": 2
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "The Pier 7 tide-gate inspection is recorded in ledger H-17 [S1], and the Cobalt Harbor night-shift report is recorded in ledger N-22 [S2].",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+        "source": "cobalt-harbor-operations.pdf",
+        "pageNumber": 1,
+        "chunkIndex": 0
+      },
+      {
+        "id": "S2",
+        "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+        "source": "cobalt-harbor-operations.pdf",
+        "pageNumber": 2,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A14",
+    "expectedStatus": "ANSWERED",
+    "question": "How is a glasswing mellifern patch marked, and what tag is used for a dawn pollination observation?",
+    "requiredFacts": [
+      "A glasswing mellifern patch is marked with a blue triangle.",
+      "The dawn pollination tag is yellow."
+    ],
+    "goldEvidence": [
+      {
+        "source": "ember-valley-research.pdf",
+        "page": 1
+      },
+      {
+        "source": "ember-valley-research.pdf",
+        "page": 3
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "A glasswing mellifern patch is marked with a blue triangle [S2], and the tag used for a dawn pollination observation is yellow [S1].",
+    "citations": [
+      {
+        "id": "S2",
+        "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+        "source": "ember-valley-research.pdf",
+        "pageNumber": 1,
+        "chunkIndex": 0
+      },
+      {
+        "id": "S1",
+        "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+        "source": "ember-valley-research.pdf",
+        "pageNumber": 3,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A15",
+    "expectedStatus": "ANSWERED",
+    "question": "How much raw data can Lumen-3 store, and how long is the Aurora relay contact window?",
+    "requiredFacts": [
+      "Lumen-3 stores one orbit of raw data in a 64-gigabyte ring buffer.",
+      "The Aurora relay contact window lasts 12 minutes."
+    ],
+    "goldEvidence": [
+      {
+        "source": "lumen-orbit-mission.pdf",
+        "page": 1
+      },
+      {
+        "source": "lumen-orbit-mission.pdf",
+        "page": 2
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "Lumen-3 stores one orbit of raw data in a 64-gigabyte ring buffer before transmitting to the Aurora relay [S1]. The Aurora relay contact window is 12 minutes long [S2].",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+        "source": "lumen-orbit-mission.pdf",
+        "pageNumber": 1,
+        "chunkIndex": 0
+      },
+      {
+        "id": "S2",
+        "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+        "source": "lumen-orbit-mission.pdf",
+        "pageNumber": 2,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "A16",
+    "expectedStatus": "ANSWERED",
+    "question": "What does Q-17 inspect for a blue-folder transfer, and how long are red folders retained?",
+    "requiredFacts": [
+      "Q-17 is calculated from the first, fourth and seventh label characters.",
+      "Red folders are retained for 18 years."
+    ],
+    "goldEvidence": [
+      {
+        "source": "paper-bridge-archive.pdf",
+        "page": 1
+      },
+      {
+        "source": "paper-bridge-archive.pdf",
+        "page": 2
+      }
+    ],
+    "actualStatus": "ANSWERED",
+    "answer": "Q-17 is calculated from the first, fourth, and seventh characters of the folder label for blue-folder transfers [S1]. Red folders are retained for 18 years [S2].",
+    "citations": [
+      {
+        "id": "S1",
+        "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+        "source": "paper-bridge-archive.pdf",
+        "pageNumber": 1,
+        "chunkIndex": 0
+      },
+      {
+        "id": "S2",
+        "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+        "source": "paper-bridge-archive.pdf",
+        "pageNumber": 2,
+        "chunkIndex": 0
+      }
+    ],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "U01",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "question": "What is the maximum cargo capacity of the blue-crate route at Pier 7?",
+    "requiredFacts": [],
+    "goldEvidence": [],
+    "actualStatus": "INSUFFICIENT_EVIDENCE",
+    "answer": "The indexed documents do not contain enough evidence to answer this question.",
+    "citations": [],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "U02",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "question": "Who is responsible for printing the yellow dawn pollination tags in Ember Valley?",
+    "requiredFacts": [],
+    "goldEvidence": [],
+    "actualStatus": "INSUFFICIENT_EVIDENCE",
+    "answer": "The indexed documents do not contain enough evidence to answer this question.",
+    "citations": [],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "U03",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "question": "What is the total mission duration of the Solace probe?",
+    "requiredFacts": [],
+    "goldEvidence": [],
+    "actualStatus": "INSUFFICIENT_EVIDENCE",
+    "answer": "The indexed documents do not contain enough evidence to answer this question.",
+    "citations": [],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "U04",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "question": "Which manufacturer supplied the amber inverter used in District North?",
+    "requiredFacts": [],
+    "goldEvidence": [],
+    "actualStatus": "INSUFFICIENT_EVIDENCE",
+    "answer": "The indexed documents do not contain enough evidence to answer this question.",
+    "citations": [],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "U05",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "question": "Who won the 2022 FIFA World Cup?",
+    "requiredFacts": [],
+    "goldEvidence": [],
+    "actualStatus": "INSUFFICIENT_EVIDENCE",
+    "answer": "The indexed documents do not contain enough evidence to answer this question.",
+    "citations": [],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "U06",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "question": "What is the capital city of the fictional country Veridia?",
+    "requiredFacts": [],
+    "goldEvidence": [],
+    "actualStatus": "INSUFFICIENT_EVIDENCE",
+    "answer": "The indexed documents do not contain enough evidence to answer this question.",
+    "citations": [],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "U07",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "question": "What recipe should a cook use to make a chocolate soufflé?",
+    "requiredFacts": [],
+    "goldEvidence": [],
+    "actualStatus": "INSUFFICIENT_EVIDENCE",
+    "answer": "The indexed documents do not contain enough evidence to answer this question.",
+    "citations": [],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  },
+  {
+    "caseId": "U08",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "question": "Who invented the Q-17 checksum before the Paper Bridge Archive used it?",
+    "requiredFacts": [],
+    "goldEvidence": [],
+    "actualStatus": "INSUFFICIENT_EVIDENCE",
+    "answer": "The indexed documents do not contain enough evidence to answer this question.",
+    "citations": [],
+    "semanticCorrect": null,
+    "complete": null,
+    "allMaterialClaimsSupported": null,
+    "reviewerNotes": ""
+  }
+]
