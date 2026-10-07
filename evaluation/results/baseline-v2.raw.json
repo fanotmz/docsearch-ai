@@ -1,0 +1,1474 @@
+{
+  "runId": "2026-10-07T08-47-43-896Z",
+  "baseUrl": "http://127.0.0.1:18082",
+  "fingerprint": {
+    "applicationSha": "0df852f3154ed788da26c47c576b3efc9e3fd909",
+    "ollamaVersion": "0.35.1",
+    "embeddingModel": "bge-m3:latest",
+    "embeddingDigest": "7907646426070047a77226ac3e684fbbe8410524f7b4a74d02837e43f2146bab",
+    "embeddingDimension": 1024,
+    "chatModel": "qwen3.5:9b",
+    "chatDigest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+    "chatTemperature": 0,
+    "chatNumCtx": 8192,
+    "chatNumPredict": 512,
+    "qaTopK": 5,
+    "searchTopK": 5,
+    "splitter": {
+      "chunkSize": 800,
+      "minChunkSizeChars": 200,
+      "minChunkLengthToEmbed": 10,
+      "maxNumChunks": 1000,
+      "keepSeparator": true
+    },
+    "manifestSha256": "513ea7f36c1a64a7b2dbb05273da8bde1faf7e92d1819a8ed3e673afbc87d7d0",
+    "casesSha256": "c8c1dd903f444ce62bd77fef0ad8d06c28f0f5722f8904c5135d2ddc02b21118"
+  },
+  "readyDocuments": [
+    {
+      "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+      "filename": "willow-grid-maintenance.pdf",
+      "pageCount": 3,
+      "status": "READY",
+      "createdAt": "2026-10-07T08:48:21.690413Z"
+    },
+    {
+      "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+      "filename": "paper-bridge-archive.pdf",
+      "pageCount": 3,
+      "status": "READY",
+      "createdAt": "2026-10-07T08:48:20.575451Z"
+    },
+    {
+      "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+      "filename": "lumen-orbit-mission.pdf",
+      "pageCount": 3,
+      "status": "READY",
+      "createdAt": "2026-10-07T08:48:18.542325Z"
+    },
+    {
+      "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+      "filename": "ember-valley-research.pdf",
+      "pageCount": 3,
+      "status": "READY",
+      "createdAt": "2026-10-07T08:48:16.873896Z"
+    },
+    {
+      "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+      "filename": "cobalt-harbor-operations.pdf",
+      "pageCount": 3,
+      "status": "READY",
+      "createdAt": "2026-10-07T08:47:44.375698Z"
+    }
+  ],
+  "uploads": [
+    {
+      "pdfName": "cobalt-harbor-operations.pdf",
+      "elapsedMs": 32515,
+      "status": 200,
+      "body": {
+        "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+        "filename": "cobalt-harbor-operations.pdf",
+        "pageCount": 3,
+        "status": "READY"
+      }
+    },
+    {
+      "pdfName": "ember-valley-research.pdf",
+      "elapsedMs": 1670,
+      "status": 200,
+      "body": {
+        "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+        "filename": "ember-valley-research.pdf",
+        "pageCount": 3,
+        "status": "READY"
+      }
+    },
+    {
+      "pdfName": "lumen-orbit-mission.pdf",
+      "elapsedMs": 2023,
+      "status": 200,
+      "body": {
+        "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+        "filename": "lumen-orbit-mission.pdf",
+        "pageCount": 3,
+        "status": "READY"
+      }
+    },
+    {
+      "pdfName": "paper-bridge-archive.pdf",
+      "elapsedMs": 1114,
+      "status": 200,
+      "body": {
+        "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+        "filename": "paper-bridge-archive.pdf",
+        "pageCount": 3,
+        "status": "READY"
+      }
+    },
+    {
+      "pdfName": "willow-grid-maintenance.pdf",
+      "elapsedMs": 990,
+      "status": 200,
+      "body": {
+        "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+        "filename": "willow-grid-maintenance.pdf",
+        "pageCount": 3,
+        "status": "READY"
+      }
+    }
+  ],
+  "searchResults": [
+    {
+      "id": "A01",
+      "request": {
+        "query": "At what time is the Pier 7 tide gate inspected at Cobalt Harbor?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 300,
+        "body": {
+          "query": "At what time is the Pier 7 tide gate inspected at Cobalt Harbor?",
+          "results": [
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Cobalt   Harbor    is a  fictional  coastal   logistics  site  used   for  the  North   Basin   exercise.    Pier                                                                              \n                 7 handles    the  blue-crate     route,  and   its tide gate   is inspected     at 06:40   every    morning.                                                                                   \n                 The   gate  uses   a  six-bolt  brass   latch   and  is never    opened     during   a red-current     warning.                                                                                \n                 The   harbor   office  records    the  inspection    in ledger    H-17.   The   blue-crate    route   is                                                                                       \n                 separate    from   the  amber-crate      route,  which    uses   Pier  3.                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.6871192455291748
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 During   the  North   Basin    exercise,    the  emergency      beacon     is mounted     beside    Pier  3,  not                                                                              \n                 Pier  7. It flashes   violet  for a  radio  failure  and   white   for a  power    failure. The                                                                                                \n                 maintenance       team   tests  the  beacon     on  Thursdays      at 14:20.   Beacon     checks     are                                                                                       \n                 recorded    in ledger    M-3   and  are   unrelated    to the  tide-gate    inspection    in ledger   H-17.                                                                                    \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.6080653071403503
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Cobalt   Harbor    night  shift  begins   at  22:15   and   ends   at  05:45.   Night   supervisors                                                                                      \n                 carry  a  copper    badge    marked     N-4.  A  night-shift   report  must    list  the  weather   vane                                                                                       \n                 reading,   the  number     of  sealed   containers,     and   any  red-current     warning.    The   harbor                                                                                    \n                 office  records   night-shift   reports   in  ledger   N-22   and   does   not  accept    unsigned     reports,                                                                                \n                 even   when    no  cargo   moved.                                                                                                                                                              \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.5700006484985352
+            },
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   archive's   stone   vault   has  three   aisles.  Aisle   C  stores   maps,    Aisle  F  stores   field                                                                                  \n                 journals,   and   Aisle  R  stores   repair  records.    The   weekly    vault  inspection     occurs   on                                                                                     \n                 Monday     at 09:30.    A vault   inspection    checks    the  aisle  seal  and   humidity    card;   it  does                                                                                 \n                 not  recalculate    the  Q-17   checksum.                                                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.4752195477485657
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Willow   Grid   supplies   power    to  three  research     districts.  The   amber    inverter                                                                               \n                 in District  North   is inspected     every   14  days,   and   its replacement      fuse  is rated   at 32                                                                                    \n                 amperes.     The   inverter   cabinet   carries   a  diamond-shaped         amber    label.  District  North   is                                                                              \n                 the  only  district using   the  32-ampere       fuse  in this  handbook.                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.40754449367523193
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A02",
+      "request": {
+        "query": "When does the Cobalt Harbor night shift begin?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 32247,
+        "body": {
+          "query": "When does the Cobalt Harbor night shift begin?",
+          "results": [
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Cobalt   Harbor    night  shift  begins   at  22:15   and   ends   at  05:45.   Night   supervisors                                                                                      \n                 carry  a  copper    badge    marked     N-4.  A  night-shift   report  must    list  the  weather   vane                                                                                       \n                 reading,   the  number     of  sealed   containers,     and   any  red-current     warning.    The   harbor                                                                                    \n                 office  records   night-shift   reports   in  ledger   N-22   and   does   not  accept    unsigned     reports,                                                                                \n                 even   when    no  cargo   moved.                                                                                                                                                              \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.7251484990119934
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Cobalt   Harbor    is a  fictional  coastal   logistics  site  used   for  the  North   Basin   exercise.    Pier                                                                              \n                 7 handles    the  blue-crate     route,  and   its tide gate   is inspected     at 06:40   every    morning.                                                                                   \n                 The   gate  uses   a  six-bolt  brass   latch   and  is never    opened     during   a red-current     warning.                                                                                \n                 The   harbor   office  records    the  inspection    in ledger    H-17.   The   blue-crate    route   is                                                                                       \n                 separate    from   the  amber-crate      route,  which    uses   Pier  3.                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.5921769738197327
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 During   the  North   Basin    exercise,    the  emergency      beacon     is mounted     beside    Pier  3,  not                                                                              \n                 Pier  7. It flashes   violet  for a  radio  failure  and   white   for a  power    failure. The                                                                                                \n                 maintenance       team   tests  the  beacon     on  Thursdays      at 14:20.   Beacon     checks     are                                                                                       \n                 recorded    in ledger    M-3   and  are   unrelated    to the  tide-gate    inspection    in ledger   H-17.                                                                                    \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.48548638820648193
+            },
+            {
+              "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+              "source": "ember-valley-research.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Ember          Valley       Field      Research             Notes                                                                                                         \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Pollination   observations      in Ember     Valley   use   three  paper    tags:  yellow   for  dawn,   red   for                                                                             \n                 midday,    and   grey  for  an  observation     interrupted    by  rain.  The   dawn    tag  is attached    at                                                                                 \n                 06:10,   before   the  glasswing     mellifern   normally    opens.    A  completed      pollination   record                                                                                  \n                 names    the  flower   patch,   the  tag  color,  and   the  observer     initials. No  observation                                                                                            \n                 protocol   assigns    a  green   tag.                                                                                                                                                          \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.35889559984207153
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Willow   Grid   supplies   power    to  three  research     districts.  The   amber    inverter                                                                               \n                 in District  North   is inspected     every   14  days,   and   its replacement      fuse  is rated   at 32                                                                                    \n                 amperes.     The   inverter   cabinet   carries   a  diamond-shaped         amber    label.  District  North   is                                                                              \n                 the  only  district using   the  32-ampere       fuse  in this  handbook.                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.3453957438468933
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A03",
+      "request": {
+        "query": "For how many minutes does the glasswing mellifern open after sunrise?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 26185,
+        "body": {
+          "query": "For how many minutes does the glasswing mellifern open after sunrise?",
+          "results": [
+            {
+              "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+              "source": "ember-valley-research.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Ember          Valley       Field      Research             Notes                                                                                                         \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Ember    Valley   is a  fictional  upland    reserve.   The   glasswing     mellifern   is a  small   blue                                                                                     \n                 flower  that  opens    for  18  minutes    after  sunrise.   Its petals   contain    no  nectar;   the  flower                                                                                 \n                 stores   nectar   in a separate     amber    cup   at the  base    of the  stem.   Researchers       mark   a                                                                                  \n                 glasswing     mellifern   patch   with  a  blue  triangle   and   survey   it from  the  eastern    path.                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.6691544055938721
+            },
+            {
+              "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+              "source": "ember-valley-research.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Ember          Valley       Field      Research             Notes                                                                                                         \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Pollination   observations      in Ember     Valley   use   three  paper    tags:  yellow   for  dawn,   red   for                                                                             \n                 midday,    and   grey  for  an  observation     interrupted    by  rain.  The   dawn    tag  is attached    at                                                                                 \n                 06:10,   before   the  glasswing     mellifern   normally    opens.    A  completed      pollination   record                                                                                  \n                 names    the  flower   patch,   the  tag  color,  and   the  observer     initials. No  observation                                                                                            \n                 protocol   assigns    a  green   tag.                                                                                                                                                          \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.5766363441944122
+            },
+            {
+              "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+              "source": "ember-valley-research.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Ember          Valley       Field      Research             Notes                                                                                                         \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   ashbell   shrub   in Ember     Valley   tolerates   dry  soil  but  cannot    survive   standing    water                                                                                \n                 for more    than  two   days.   Its roots  grow    shallowly,   while   the  glasswing     mellifern   prefers                                                                                 \n                 a narrow    band    of damp,    porous    soil. The   reserve    uses   the  phrase    ashbell    shelf  for the                                                                               \n                 dry  terrace   above    the  stream.    A shelf   marker    is a white   square,    not  a blue   triangle.                                                                                    \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.4712408781051636
+            },
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Aurora   relay   receives    Lumen-3     packets     during   a 12-minute     contact    window.     The                                                                                 \n                 relay  antenna     points  18   degrees    east   during   the  first half of  the  window    and   18                                                                                         \n                 degrees    west   during   the  second     half. The   mission    uses    a silver  timing   pulse   to mark                                                                                   \n                 the  handoff.   A  packet    not  carrying   the  pulse   is held   for review    instead   of being                                                                                           \n                 discarded.                                                                                                                                                                                     \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.4151346683502197
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Cobalt   Harbor    night  shift  begins   at  22:15   and   ends   at  05:45.   Night   supervisors                                                                                      \n                 carry  a  copper    badge    marked     N-4.  A  night-shift   report  must    list  the  weather   vane                                                                                       \n                 reading,   the  number     of  sealed   containers,     and   any  red-current     warning.    The   harbor                                                                                    \n                 office  records   night-shift   reports   in  ledger   N-22   and   does   not  accept    unsigned     reports,                                                                                \n                 even   when    no  cargo   moved.                                                                                                                                                              \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.38354164361953735
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A04",
+      "request": {
+        "query": "What soil conditions does the glasswing mellifern prefer?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 25157,
+        "body": {
+          "query": "What soil conditions does the glasswing mellifern prefer?",
+          "results": [
+            {
+              "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+              "source": "ember-valley-research.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Ember          Valley       Field      Research             Notes                                                                                                         \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   ashbell   shrub   in Ember     Valley   tolerates   dry  soil  but  cannot    survive   standing    water                                                                                \n                 for more    than  two   days.   Its roots  grow    shallowly,   while   the  glasswing     mellifern   prefers                                                                                 \n                 a narrow    band    of damp,    porous    soil. The   reserve    uses   the  phrase    ashbell    shelf  for the                                                                               \n                 dry  terrace   above    the  stream.    A shelf   marker    is a white   square,    not  a blue   triangle.                                                                                    \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.5766964852809906
+            },
+            {
+              "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+              "source": "ember-valley-research.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Ember          Valley       Field      Research             Notes                                                                                                         \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Ember    Valley   is a  fictional  upland    reserve.   The   glasswing     mellifern   is a  small   blue                                                                                     \n                 flower  that  opens    for  18  minutes    after  sunrise.   Its petals   contain    no  nectar;   the  flower                                                                                 \n                 stores   nectar   in a separate     amber    cup   at the  base    of the  stem.   Researchers       mark   a                                                                                  \n                 glasswing     mellifern   patch   with  a  blue  triangle   and   survey   it from  the  eastern    path.                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.5718940198421478
+            },
+            {
+              "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+              "source": "ember-valley-research.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Ember          Valley       Field      Research             Notes                                                                                                         \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Pollination   observations      in Ember     Valley   use   three  paper    tags:  yellow   for  dawn,   red   for                                                                             \n                 midday,    and   grey  for  an  observation     interrupted    by  rain.  The   dawn    tag  is attached    at                                                                                 \n                 06:10,   before   the  glasswing     mellifern   normally    opens.    A  completed      pollination   record                                                                                  \n                 names    the  flower   patch,   the  tag  color,  and   the  observer     initials. No  observation                                                                                            \n                 protocol   assigns    a  green   tag.                                                                                                                                                          \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.5072746872901917
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Willow   Grid   storm   procedure     has   two  independent       steps.   First, operators     isolate                                                                                 \n                 the  affected   feeder.   Second,     they   place   a violet  storm   flag  on  the  control   panel.   The                                                                                   \n                 procedure     does   not  specify   the  name     of the  storm   or  the  total number     of  lightning                                                                                      \n                 strikes.  Those    facts  are  not  recorded     in the  maintenance       handbook.                                                                                                           \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.3445547819137573
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 District  South   uses   a  ceramic    relay   with  a 20-ampere       fuse.  Technicians      inspect   the                                                                                   \n                 relay  every   21  days   and   record    the  reading   on   a green    service   card.  A  32-ampere       fuse                                                                              \n                 must   never   be  installed   in the  South    relay.  The   service    card  is filed  in cabinet   S-2   after                                                                              \n                 the  inspection.                                                                                                                                                                               \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.28035569190979004
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A05",
+      "request": {
+        "query": "What is the orbital period of the Lumen-3 satellite?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 23741,
+        "body": {
+          "query": "What is the orbital period of the Lumen-3 satellite?",
+          "results": [
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Lumen-3     satellite  follows   a  polar  orbit  with  an  orbital  period   of  97  minutes.                                                                                \n                 Its primary   instrument     is the  dusk   spectrometer,       which   measures      the  blue   edge   of a                                                                                  \n                 planet's   reflected   light. Lumen-3      stores   one   orbit of  raw  data   in a  64-gigabyte     ring                                                                                     \n                 buffer  before   transmitting     a compressed       packet    to the  Aurora    relay.                                                                                                        \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.7451682090759277
+            },
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Aurora   relay   receives    Lumen-3     packets     during   a 12-minute     contact    window.     The                                                                                 \n                 relay  antenna     points  18   degrees    east   during   the  first half of  the  window    and   18                                                                                         \n                 degrees    west   during   the  second     half. The   mission    uses    a silver  timing   pulse   to mark                                                                                   \n                 the  handoff.   A  packet    not  carrying   the  pulse   is held   for review    instead   of being                                                                                           \n                 discarded.                                                                                                                                                                                     \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.5890527665615082
+            },
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Solace    probe   is a  separate    mission.    Solace    maps    the  dark   side  of the                                                                                    \n                 moon    Nera   with  a  thermal    camera     and  completes      a scan    in 41  minutes.    Unlike                                                                                          \n                 Lumen-3,     Solace    does   not  use   a  polar  orbit  or the  Aurora    relay.  The   two   mission                                                                                        \n                 names    appear     together   in  status  summaries       but  their  instruments     and   schedules     must                                                                                \n                 not  be  combined.                                                                                                                                                                             \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.5528777837753296
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 During   the  North   Basin    exercise,    the  emergency      beacon     is mounted     beside    Pier  3,  not                                                                              \n                 Pier  7. It flashes   violet  for a  radio  failure  and   white   for a  power    failure. The                                                                                                \n                 maintenance       team   tests  the  beacon     on  Thursdays      at 14:20.   Beacon     checks     are                                                                                       \n                 recorded    in ledger    M-3   and  are   unrelated    to the  tide-gate    inspection    in ledger   H-17.                                                                                    \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.34506869316101074
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Willow   Grid   supplies   power    to  three  research     districts.  The   amber    inverter                                                                               \n                 in District  North   is inspected     every   14  days,   and   its replacement      fuse  is rated   at 32                                                                                    \n                 amperes.     The   inverter   cabinet   carries   a  diamond-shaped         amber    label.  District  North   is                                                                              \n                 the  only  district using   the  32-ampere       fuse  in this  handbook.                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.33622533082962036
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A06",
+      "request": {
+        "query": "In which direction does the Aurora relay antenna point during the first half of its contact window?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 22737,
+        "body": {
+          "query": "In which direction does the Aurora relay antenna point during the first half of its contact window?",
+          "results": [
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Aurora   relay   receives    Lumen-3     packets     during   a 12-minute     contact    window.     The                                                                                 \n                 relay  antenna     points  18   degrees    east   during   the  first half of  the  window    and   18                                                                                         \n                 degrees    west   during   the  second     half. The   mission    uses    a silver  timing   pulse   to mark                                                                                   \n                 the  handoff.   A  packet    not  carrying   the  pulse   is held   for review    instead   of being                                                                                           \n                 discarded.                                                                                                                                                                                     \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.6817764341831207
+            },
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Solace    probe   is a  separate    mission.    Solace    maps    the  dark   side  of the                                                                                    \n                 moon    Nera   with  a  thermal    camera     and  completes      a scan    in 41  minutes.    Unlike                                                                                          \n                 Lumen-3,     Solace    does   not  use   a  polar  orbit  or the  Aurora    relay.  The   two   mission                                                                                        \n                 names    appear     together   in  status  summaries       but  their  instruments     and   schedules     must                                                                                \n                 not  be  combined.                                                                                                                                                                             \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.43923163414001465
+            },
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Lumen-3     satellite  follows   a  polar  orbit  with  an  orbital  period   of  97  minutes.                                                                                \n                 Its primary   instrument     is the  dusk   spectrometer,       which   measures      the  blue   edge   of a                                                                                  \n                 planet's   reflected   light. Lumen-3      stores   one   orbit of  raw  data   in a  64-gigabyte     ring                                                                                     \n                 buffer  before   transmitting     a compressed       packet    to the  Aurora    relay.                                                                                                        \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.4298347234725952
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 District  South   uses   a  ceramic    relay   with  a 20-ampere       fuse.  Technicians      inspect   the                                                                                   \n                 relay  every   21  days   and   record    the  reading   on   a green    service   card.  A  32-ampere       fuse                                                                              \n                 must   never   be  installed   in the  South    relay.  The   service    card  is filed  in cabinet   S-2   after                                                                              \n                 the  inspection.                                                                                                                                                                               \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.4034839868545532
+            },
+            {
+              "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+              "source": "ember-valley-research.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Ember          Valley       Field      Research             Notes                                                                                                         \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Ember    Valley   is a  fictional  upland    reserve.   The   glasswing     mellifern   is a  small   blue                                                                                     \n                 flower  that  opens    for  18  minutes    after  sunrise.   Its petals   contain    no  nectar;   the  flower                                                                                 \n                 stores   nectar   in a separate     amber    cup   at the  base    of the  stem.   Researchers       mark   a                                                                                  \n                 glasswing     mellifern   patch   with  a  blue  triangle   and   survey   it from  the  eastern    path.                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.4014989733695984
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A07",
+      "request": {
+        "query": "Which characters are used to calculate the Paper Bridge Archive Q-17 checksum?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 30853,
+        "body": {
+          "query": "Which characters are used to calculate the Paper Bridge Archive Q-17 checksum?",
+          "results": [
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Paper   Bridge    Archive    uses   the  fictional  Q-17   checksum       for blue-folder    transfers.                                                                                  \n                 Q-17   is calculated    from   the  first, fourth,  and   seventh    characters     of the  folder   label.  A                                                                                 \n                 transfer   passes    only  when    the  checksum       is written  in the  upper-right     corner   of the                                                                                     \n                 intake  card.   The   blue-folder    protocol   is different   from   the  red-folder    retention   protocol.                                                                                 \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.74208864569664
+            },
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   archive's   stone   vault   has  three   aisles.  Aisle   C  stores   maps,    Aisle  F  stores   field                                                                                  \n                 journals,   and   Aisle  R  stores   repair  records.    The   weekly    vault  inspection     occurs   on                                                                                     \n                 Monday     at 09:30.    A vault   inspection    checks    the  aisle  seal  and   humidity    card;   it  does                                                                                 \n                 not  recalculate    the  Q-17   checksum.                                                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.5335631668567657
+            },
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Red   folders   in the  Paper    Bridge   Archive    have   a  retention   period    of 18  years.   After  18                                                                                 \n                 years,   a curator   may    either  transfer   a  folder  to the  stone   vault   or mark    it  for  supervised                                                                               \n                 destruction.    The   retention   clock   starts  on  the  date   of final  approval,    not  the  date   of first                                                                             \n                 receipt.  Blue   folders   have   no  fixed   retention   period   in this  protocol.                                                                                                          \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.5026550590991974
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Cobalt   Harbor    is a  fictional  coastal   logistics  site  used   for  the  North   Basin   exercise.    Pier                                                                              \n                 7 handles    the  blue-crate     route,  and   its tide gate   is inspected     at 06:40   every    morning.                                                                                   \n                 The   gate  uses   a  six-bolt  brass   latch   and  is never    opened     during   a red-current     warning.                                                                                \n                 The   harbor   office  records    the  inspection    in ledger    H-17.   The   blue-crate    route   is                                                                                       \n                 separate    from   the  amber-crate      route,  which    uses   Pier  3.                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.38960593938827515
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Cobalt   Harbor    night  shift  begins   at  22:15   and   ends   at  05:45.   Night   supervisors                                                                                      \n                 carry  a  copper    badge    marked     N-4.  A  night-shift   report  must    list  the  weather   vane                                                                                       \n                 reading,   the  number     of  sealed   containers,     and   any  red-current     warning.    The   harbor                                                                                    \n                 office  records   night-shift   reports   in  ledger   N-22   and   does   not  accept    unsigned     reports,                                                                                \n                 even   when    no  cargo   moved.                                                                                                                                                              \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.38290607929229736
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A08",
+      "request": {
+        "query": "How long is the retention period for red folders in the Paper Bridge Archive?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 25268,
+        "body": {
+          "query": "How long is the retention period for red folders in the Paper Bridge Archive?",
+          "results": [
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Red   folders   in the  Paper    Bridge   Archive    have   a  retention   period    of 18  years.   After  18                                                                                 \n                 years,   a curator   may    either  transfer   a  folder  to the  stone   vault   or mark    it  for  supervised                                                                               \n                 destruction.    The   retention   clock   starts  on  the  date   of final  approval,    not  the  date   of first                                                                             \n                 receipt.  Blue   folders   have   no  fixed   retention   period   in this  protocol.                                                                                                          \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.8205358684062958
+            },
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Paper   Bridge    Archive    uses   the  fictional  Q-17   checksum       for blue-folder    transfers.                                                                                  \n                 Q-17   is calculated    from   the  first, fourth,  and   seventh    characters     of the  folder   label.  A                                                                                 \n                 transfer   passes    only  when    the  checksum       is written  in the  upper-right     corner   of the                                                                                     \n                 intake  card.   The   blue-folder    protocol   is different   from   the  red-folder    retention   protocol.                                                                                 \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.6170152127742767
+            },
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   archive's   stone   vault   has  three   aisles.  Aisle   C  stores   maps,    Aisle  F  stores   field                                                                                  \n                 journals,   and   Aisle  R  stores   repair  records.    The   weekly    vault  inspection     occurs   on                                                                                     \n                 Monday     at 09:30.    A vault   inspection    checks    the  aisle  seal  and   humidity    card;   it  does                                                                                 \n                 not  recalculate    the  Q-17   checksum.                                                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.5162119269371033
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 District  South   uses   a  ceramic    relay   with  a 20-ampere       fuse.  Technicians      inspect   the                                                                                   \n                 relay  every   21  days   and   record    the  reading   on   a green    service   card.  A  32-ampere       fuse                                                                              \n                 must   never   be  installed   in the  South    relay.  The   service    card  is filed  in cabinet   S-2   after                                                                              \n                 the  inspection.                                                                                                                                                                               \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.4176809787750244
+            },
+            {
+              "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+              "source": "ember-valley-research.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Ember          Valley       Field      Research             Notes                                                                                                         \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   ashbell   shrub   in Ember     Valley   tolerates   dry  soil  but  cannot    survive   standing    water                                                                                \n                 for more    than  two   days.   Its roots  grow    shallowly,   while   the  glasswing     mellifern   prefers                                                                                 \n                 a narrow    band    of damp,    porous    soil. The   reserve    uses   the  phrase    ashbell    shelf  for the                                                                               \n                 dry  terrace   above    the  stream.    A shelf   marker    is a white   square,    not  a blue   triangle.                                                                                    \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.3985949754714966
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A09",
+      "request": {
+        "query": "What fuse rating is used by the amber inverter in Willow Grid District North?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 24851,
+        "body": {
+          "query": "What fuse rating is used by the amber inverter in Willow Grid District North?",
+          "results": [
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Willow   Grid   supplies   power    to  three  research     districts.  The   amber    inverter                                                                               \n                 in District  North   is inspected     every   14  days,   and   its replacement      fuse  is rated   at 32                                                                                    \n                 amperes.     The   inverter   cabinet   carries   a  diamond-shaped         amber    label.  District  North   is                                                                              \n                 the  only  district using   the  32-ampere       fuse  in this  handbook.                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.7899171561002731
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 District  South   uses   a  ceramic    relay   with  a 20-ampere       fuse.  Technicians      inspect   the                                                                                   \n                 relay  every   21  days   and   record    the  reading   on   a green    service   card.  A  32-ampere       fuse                                                                              \n                 must   never   be  installed   in the  South    relay.  The   service    card  is filed  in cabinet   S-2   after                                                                              \n                 the  inspection.                                                                                                                                                                               \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.6598547995090485
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Willow   Grid   storm   procedure     has   two  independent       steps.   First, operators     isolate                                                                                 \n                 the  affected   feeder.   Second,     they   place   a violet  storm   flag  on  the  control   panel.   The                                                                                   \n                 procedure     does   not  specify   the  name     of the  storm   or  the  total number     of  lightning                                                                                      \n                 strikes.  Those    facts  are  not  recorded     in the  maintenance       handbook.                                                                                                           \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.48264652490615845
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 During   the  North   Basin    exercise,    the  emergency      beacon     is mounted     beside    Pier  3,  not                                                                              \n                 Pier  7. It flashes   violet  for a  radio  failure  and   white   for a  power    failure. The                                                                                                \n                 maintenance       team   tests  the  beacon     on  Thursdays      at 14:20.   Beacon     checks     are                                                                                       \n                 recorded    in ledger    M-3   and  are   unrelated    to the  tide-gate    inspection    in ledger   H-17.                                                                                    \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.4320923686027527
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Cobalt   Harbor    is a  fictional  coastal   logistics  site  used   for  the  North   Basin   exercise.    Pier                                                                              \n                 7 handles    the  blue-crate     route,  and   its tide gate   is inspected     at 06:40   every    morning.                                                                                   \n                 The   gate  uses   a  six-bolt  brass   latch   and  is never    opened     during   a red-current     warning.                                                                                \n                 The   harbor   office  records    the  inspection    in ledger    H-17.   The   blue-crate    route   is                                                                                       \n                 separate    from   the  amber-crate      route,  which    uses   Pier  3.                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.4015498161315918
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A10",
+      "request": {
+        "query": "How often do technicians inspect the ceramic relay in Willow Grid District South?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 25459,
+        "body": {
+          "query": "How often do technicians inspect the ceramic relay in Willow Grid District South?",
+          "results": [
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 District  South   uses   a  ceramic    relay   with  a 20-ampere       fuse.  Technicians      inspect   the                                                                                   \n                 relay  every   21  days   and   record    the  reading   on   a green    service   card.  A  32-ampere       fuse                                                                              \n                 must   never   be  installed   in the  South    relay.  The   service    card  is filed  in cabinet   S-2   after                                                                              \n                 the  inspection.                                                                                                                                                                               \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.7362454831600189
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Willow   Grid   supplies   power    to  three  research     districts.  The   amber    inverter                                                                               \n                 in District  North   is inspected     every   14  days,   and   its replacement      fuse  is rated   at 32                                                                                    \n                 amperes.     The   inverter   cabinet   carries   a  diamond-shaped         amber    label.  District  North   is                                                                              \n                 the  only  district using   the  32-ampere       fuse  in this  handbook.                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.6235755681991577
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Willow   Grid   storm   procedure     has   two  independent       steps.   First, operators     isolate                                                                                 \n                 the  affected   feeder.   Second,     they   place   a violet  storm   flag  on  the  control   panel.   The                                                                                   \n                 procedure     does   not  specify   the  name     of the  storm   or  the  total number     of  lightning                                                                                      \n                 strikes.  Those    facts  are  not  recorded     in the  maintenance       handbook.                                                                                                           \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.5346656143665314
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 During   the  North   Basin    exercise,    the  emergency      beacon     is mounted     beside    Pier  3,  not                                                                              \n                 Pier  7. It flashes   violet  for a  radio  failure  and   white   for a  power    failure. The                                                                                                \n                 maintenance       team   tests  the  beacon     on  Thursdays      at 14:20.   Beacon     checks     are                                                                                       \n                 recorded    in ledger    M-3   and  are   unrelated    to the  tide-gate    inspection    in ledger   H-17.                                                                                    \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.45822077989578247
+            },
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   archive's   stone   vault   has  three   aisles.  Aisle   C  stores   maps,    Aisle  F  stores   field                                                                                  \n                 journals,   and   Aisle  R  stores   repair  records.    The   weekly    vault  inspection     occurs   on                                                                                     \n                 Monday     at 09:30.    A vault   inspection    checks    the  aisle  seal  and   humidity    card;   it  does                                                                                 \n                 not  recalculate    the  Q-17   checksum.                                                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.4503985643386841
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A11",
+      "request": {
+        "query": "What beacon color indicates a radio failure at the North Basin harbor exercise?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 23410,
+        "body": {
+          "query": "What beacon color indicates a radio failure at the North Basin harbor exercise?",
+          "results": [
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 During   the  North   Basin    exercise,    the  emergency      beacon     is mounted     beside    Pier  3,  not                                                                              \n                 Pier  7. It flashes   violet  for a  radio  failure  and   white   for a  power    failure. The                                                                                                \n                 maintenance       team   tests  the  beacon     on  Thursdays      at 14:20.   Beacon     checks     are                                                                                       \n                 recorded    in ledger    M-3   and  are   unrelated    to the  tide-gate    inspection    in ledger   H-17.                                                                                    \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.6874167919158936
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Cobalt   Harbor    is a  fictional  coastal   logistics  site  used   for  the  North   Basin   exercise.    Pier                                                                              \n                 7 handles    the  blue-crate     route,  and   its tide gate   is inspected     at 06:40   every    morning.                                                                                   \n                 The   gate  uses   a  six-bolt  brass   latch   and  is never    opened     during   a red-current     warning.                                                                                \n                 The   harbor   office  records    the  inspection    in ledger    H-17.   The   blue-crate    route   is                                                                                       \n                 separate    from   the  amber-crate      route,  which    uses   Pier  3.                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.5491142868995667
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Cobalt   Harbor    night  shift  begins   at  22:15   and   ends   at  05:45.   Night   supervisors                                                                                      \n                 carry  a  copper    badge    marked     N-4.  A  night-shift   report  must    list  the  weather   vane                                                                                       \n                 reading,   the  number     of  sealed   containers,     and   any  red-current     warning.    The   harbor                                                                                    \n                 office  records   night-shift   reports   in  ledger   N-22   and   does   not  accept    unsigned     reports,                                                                                \n                 even   when    no  cargo   moved.                                                                                                                                                              \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.47161585092544556
+            },
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Aurora   relay   receives    Lumen-3     packets     during   a 12-minute     contact    window.     The                                                                                 \n                 relay  antenna     points  18   degrees    east   during   the  first half of  the  window    and   18                                                                                         \n                 degrees    west   during   the  second     half. The   mission    uses    a silver  timing   pulse   to mark                                                                                   \n                 the  handoff.   A  packet    not  carrying   the  pulse   is held   for review    instead   of being                                                                                           \n                 discarded.                                                                                                                                                                                     \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.4254843592643738
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Willow   Grid   supplies   power    to  three  research     districts.  The   amber    inverter                                                                               \n                 in District  North   is inspected     every   14  days,   and   its replacement      fuse  is rated   at 32                                                                                    \n                 amperes.     The   inverter   cabinet   carries   a  diamond-shaped         amber    label.  District  North   is                                                                              \n                 the  only  district using   the  32-ampere       fuse  in this  handbook.                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.41640138626098633
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A12",
+      "request": {
+        "query": "How long does the separate Solace probe take to complete a scan?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 28095,
+        "body": {
+          "query": "How long does the separate Solace probe take to complete a scan?",
+          "results": [
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Solace    probe   is a  separate    mission.    Solace    maps    the  dark   side  of the                                                                                    \n                 moon    Nera   with  a  thermal    camera     and  completes      a scan    in 41  minutes.    Unlike                                                                                          \n                 Lumen-3,     Solace    does   not  use   a  polar  orbit  or the  Aurora    relay.  The   two   mission                                                                                        \n                 names    appear     together   in  status  summaries       but  their  instruments     and   schedules     must                                                                                \n                 not  be  combined.                                                                                                                                                                             \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.680205762386322
+            },
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Aurora   relay   receives    Lumen-3     packets     during   a 12-minute     contact    window.     The                                                                                 \n                 relay  antenna     points  18   degrees    east   during   the  first half of  the  window    and   18                                                                                         \n                 degrees    west   during   the  second     half. The   mission    uses    a silver  timing   pulse   to mark                                                                                   \n                 the  handoff.   A  packet    not  carrying   the  pulse   is held   for review    instead   of being                                                                                           \n                 discarded.                                                                                                                                                                                     \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.46707189083099365
+            },
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Lumen-3     satellite  follows   a  polar  orbit  with  an  orbital  period   of  97  minutes.                                                                                \n                 Its primary   instrument     is the  dusk   spectrometer,       which   measures      the  blue   edge   of a                                                                                  \n                 planet's   reflected   light. Lumen-3      stores   one   orbit of  raw  data   in a  64-gigabyte     ring                                                                                     \n                 buffer  before   transmitting     a compressed       packet    to the  Aurora    relay.                                                                                                        \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.4545016288757324
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 During   the  North   Basin    exercise,    the  emergency      beacon     is mounted     beside    Pier  3,  not                                                                              \n                 Pier  7. It flashes   violet  for a  radio  failure  and   white   for a  power    failure. The                                                                                                \n                 maintenance       team   tests  the  beacon     on  Thursdays      at 14:20.   Beacon     checks     are                                                                                       \n                 recorded    in ledger    M-3   and  are   unrelated    to the  tide-gate    inspection    in ledger   H-17.                                                                                    \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.4114059805870056
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 District  South   uses   a  ceramic    relay   with  a 20-ampere       fuse.  Technicians      inspect   the                                                                                   \n                 relay  every   21  days   and   record    the  reading   on   a green    service   card.  A  32-ampere       fuse                                                                              \n                 must   never   be  installed   in the  South    relay.  The   service    card  is filed  in cabinet   S-2   after                                                                              \n                 the  inspection.                                                                                                                                                                               \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.40720152854919434
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A13",
+      "request": {
+        "query": "Which ledgers record the Pier 7 tide-gate inspection and the Cobalt Harbor night-shift report?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 30146,
+        "body": {
+          "query": "Which ledgers record the Pier 7 tide-gate inspection and the Cobalt Harbor night-shift report?",
+          "results": [
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Cobalt   Harbor    is a  fictional  coastal   logistics  site  used   for  the  North   Basin   exercise.    Pier                                                                              \n                 7 handles    the  blue-crate     route,  and   its tide gate   is inspected     at 06:40   every    morning.                                                                                   \n                 The   gate  uses   a  six-bolt  brass   latch   and  is never    opened     during   a red-current     warning.                                                                                \n                 The   harbor   office  records    the  inspection    in ledger    H-17.   The   blue-crate    route   is                                                                                       \n                 separate    from   the  amber-crate      route,  which    uses   Pier  3.                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.5919582843780518
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Cobalt   Harbor    night  shift  begins   at  22:15   and   ends   at  05:45.   Night   supervisors                                                                                      \n                 carry  a  copper    badge    marked     N-4.  A  night-shift   report  must    list  the  weather   vane                                                                                       \n                 reading,   the  number     of  sealed   containers,     and   any  red-current     warning.    The   harbor                                                                                    \n                 office  records   night-shift   reports   in  ledger   N-22   and   does   not  accept    unsigned     reports,                                                                                \n                 even   when    no  cargo   moved.                                                                                                                                                              \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.5767731964588165
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 During   the  North   Basin    exercise,    the  emergency      beacon     is mounted     beside    Pier  3,  not                                                                              \n                 Pier  7. It flashes   violet  for a  radio  failure  and   white   for a  power    failure. The                                                                                                \n                 maintenance       team   tests  the  beacon     on  Thursdays      at 14:20.   Beacon     checks     are                                                                                       \n                 recorded    in ledger    M-3   and  are   unrelated    to the  tide-gate    inspection    in ledger   H-17.                                                                                    \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.5335020422935486
+            },
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   archive's   stone   vault   has  three   aisles.  Aisle   C  stores   maps,    Aisle  F  stores   field                                                                                  \n                 journals,   and   Aisle  R  stores   repair  records.    The   weekly    vault  inspection     occurs   on                                                                                     \n                 Monday     at 09:30.    A vault   inspection    checks    the  aisle  seal  and   humidity    card;   it  does                                                                                 \n                 not  recalculate    the  Q-17   checksum.                                                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.4250496029853821
+            },
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Paper   Bridge    Archive    uses   the  fictional  Q-17   checksum       for blue-folder    transfers.                                                                                  \n                 Q-17   is calculated    from   the  first, fourth,  and   seventh    characters     of the  folder   label.  A                                                                                 \n                 transfer   passes    only  when    the  checksum       is written  in the  upper-right     corner   of the                                                                                     \n                 intake  card.   The   blue-folder    protocol   is different   from   the  red-folder    retention   protocol.                                                                                 \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.3786340355873108
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A14",
+      "request": {
+        "query": "How is a glasswing mellifern patch marked, and what tag is used for a dawn pollination observation?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 28420,
+        "body": {
+          "query": "How is a glasswing mellifern patch marked, and what tag is used for a dawn pollination observation?",
+          "results": [
+            {
+              "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+              "source": "ember-valley-research.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Ember          Valley       Field      Research             Notes                                                                                                         \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Pollination   observations      in Ember     Valley   use   three  paper    tags:  yellow   for  dawn,   red   for                                                                             \n                 midday,    and   grey  for  an  observation     interrupted    by  rain.  The   dawn    tag  is attached    at                                                                                 \n                 06:10,   before   the  glasswing     mellifern   normally    opens.    A  completed      pollination   record                                                                                  \n                 names    the  flower   patch,   the  tag  color,  and   the  observer     initials. No  observation                                                                                            \n                 protocol   assigns    a  green   tag.                                                                                                                                                          \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.7488130033016205
+            },
+            {
+              "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+              "source": "ember-valley-research.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Ember          Valley       Field      Research             Notes                                                                                                         \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Ember    Valley   is a  fictional  upland    reserve.   The   glasswing     mellifern   is a  small   blue                                                                                     \n                 flower  that  opens    for  18  minutes    after  sunrise.   Its petals   contain    no  nectar;   the  flower                                                                                 \n                 stores   nectar   in a separate     amber    cup   at the  base    of the  stem.   Researchers       mark   a                                                                                  \n                 glasswing     mellifern   patch   with  a  blue  triangle   and   survey   it from  the  eastern    path.                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.5910418033599854
+            },
+            {
+              "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+              "source": "ember-valley-research.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Ember          Valley       Field      Research             Notes                                                                                                         \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   ashbell   shrub   in Ember     Valley   tolerates   dry  soil  but  cannot    survive   standing    water                                                                                \n                 for more    than  two   days.   Its roots  grow    shallowly,   while   the  glasswing     mellifern   prefers                                                                                 \n                 a narrow    band    of damp,    porous    soil. The   reserve    uses   the  phrase    ashbell    shelf  for the                                                                               \n                 dry  terrace   above    the  stream.    A shelf   marker    is a white   square,    not  a blue   triangle.                                                                                    \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.4724762439727783
+            },
+            {
+              "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+              "source": "willow-grid-maintenance.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Willow        Grid      Maintenance                Handbook                                                                                                               \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Willow   Grid   storm   procedure     has   two  independent       steps.   First, operators     isolate                                                                                 \n                 the  affected   feeder.   Second,     they   place   a violet  storm   flag  on  the  control   panel.   The                                                                                   \n                 procedure     does   not  specify   the  name     of the  storm   or  the  total number     of  lightning                                                                                      \n                 strikes.  Those    facts  are  not  recorded     in the  maintenance       handbook.                                                                                                           \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.44342637062072754
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Cobalt   Harbor    night  shift  begins   at  22:15   and   ends   at  05:45.   Night   supervisors                                                                                      \n                 carry  a  copper    badge    marked     N-4.  A  night-shift   report  must    list  the  weather   vane                                                                                       \n                 reading,   the  number     of  sealed   containers,     and   any  red-current     warning.    The   harbor                                                                                    \n                 office  records   night-shift   reports   in  ledger   N-22   and   does   not  accept    unsigned     reports,                                                                                \n                 even   when    no  cargo   moved.                                                                                                                                                              \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.4379335045814514
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A15",
+      "request": {
+        "query": "How much raw data can Lumen-3 store, and how long is the Aurora relay contact window?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 33200,
+        "body": {
+          "query": "How much raw data can Lumen-3 store, and how long is the Aurora relay contact window?",
+          "results": [
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Lumen-3     satellite  follows   a  polar  orbit  with  an  orbital  period   of  97  minutes.                                                                                \n                 Its primary   instrument     is the  dusk   spectrometer,       which   measures      the  blue   edge   of a                                                                                  \n                 planet's   reflected   light. Lumen-3      stores   one   orbit of  raw  data   in a  64-gigabyte     ring                                                                                     \n                 buffer  before   transmitting     a compressed       packet    to the  Aurora    relay.                                                                                                        \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.6747609674930573
+            },
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Aurora   relay   receives    Lumen-3     packets     during   a 12-minute     contact    window.     The                                                                                 \n                 relay  antenna     points  18   degrees    east   during   the  first half of  the  window    and   18                                                                                         \n                 degrees    west   during   the  second     half. The   mission    uses    a silver  timing   pulse   to mark                                                                                   \n                 the  handoff.   A  packet    not  carrying   the  pulse   is held   for review    instead   of being                                                                                           \n                 discarded.                                                                                                                                                                                     \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.6718800961971283
+            },
+            {
+              "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+              "source": "lumen-orbit-mission.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Lumen          Orbit       Mission          Briefing                                                                                                                \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   fictional  Solace    probe   is a  separate    mission.    Solace    maps    the  dark   side  of the                                                                                    \n                 moon    Nera   with  a  thermal    camera     and  completes      a scan    in 41  minutes.    Unlike                                                                                          \n                 Lumen-3,     Solace    does   not  use   a  polar  orbit  or the  Aurora    relay.  The   two   mission                                                                                        \n                 names    appear     together   in  status  summaries       but  their  instruments     and   schedules     must                                                                                \n                 not  be  combined.                                                                                                                                                                             \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.5526933968067169
+            },
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Red   folders   in the  Paper    Bridge   Archive    have   a  retention   period    of 18  years.   After  18                                                                                 \n                 years,   a curator   may    either  transfer   a  folder  to the  stone   vault   or mark    it  for  supervised                                                                               \n                 destruction.    The   retention   clock   starts  on  the  date   of final  approval,    not  the  date   of first                                                                             \n                 receipt.  Blue   folders   have   no  fixed   retention   period   in this  protocol.                                                                                                          \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.4252265691757202
+            },
+            {
+              "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+              "source": "ember-valley-research.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Ember          Valley       Field      Research             Notes                                                                                                         \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Ember    Valley   is a  fictional  upland    reserve.   The   glasswing     mellifern   is a  small   blue                                                                                     \n                 flower  that  opens    for  18  minutes    after  sunrise.   Its petals   contain    no  nectar;   the  flower                                                                                 \n                 stores   nectar   in a separate     amber    cup   at the  base    of the  stem.   Researchers       mark   a                                                                                  \n                 glasswing     mellifern   patch   with  a  blue  triangle   and   survey   it from  the  eastern    path.                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.4030795693397522
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "A16",
+      "request": {
+        "query": "What does Q-17 inspect for a blue-folder transfer, and how long are red folders retained?",
+        "topK": 5
+      },
+      "response": {
+        "status": 200,
+        "elapsedMs": 36466,
+        "body": {
+          "query": "What does Q-17 inspect for a blue-folder transfer, and how long are red folders retained?",
+          "results": [
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Paper   Bridge    Archive    uses   the  fictional  Q-17   checksum       for blue-folder    transfers.                                                                                  \n                 Q-17   is calculated    from   the  first, fourth,  and   seventh    characters     of the  folder   label.  A                                                                                 \n                 transfer   passes    only  when    the  checksum       is written  in the  upper-right     corner   of the                                                                                     \n                 intake  card.   The   blue-folder    protocol   is different   from   the  red-folder    retention   protocol.                                                                                 \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.6742593944072723
+            },
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Red   folders   in the  Paper    Bridge   Archive    have   a  retention   period    of 18  years.   After  18                                                                                 \n                 years,   a curator   may    either  transfer   a  folder  to the  stone   vault   or mark    it  for  supervised                                                                               \n                 destruction.    The   retention   clock   starts  on  the  date   of final  approval,    not  the  date   of first                                                                             \n                 receipt.  Blue   folders   have   no  fixed   retention   period   in this  protocol.                                                                                                          \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.5878741443157196
+            },
+            {
+              "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+              "source": "paper-bridge-archive.pdf",
+              "pageNumber": 3,
+              "chunkIndex": 0,
+              "content": "Paper        Bridge         Archive         Protocol                                                                                                                 \n\n                 Source  page  3  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   archive's   stone   vault   has  three   aisles.  Aisle   C  stores   maps,    Aisle  F  stores   field                                                                                  \n                 journals,   and   Aisle  R  stores   repair  records.    The   weekly    vault  inspection     occurs   on                                                                                     \n                 Monday     at 09:30.    A vault   inspection    checks    the  aisle  seal  and   humidity    card;   it  does                                                                                 \n                 not  recalculate    the  Q-17   checksum.                                                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 3",
+              "score": 0.45324158668518066
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 1,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  1  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 Cobalt   Harbor    is a  fictional  coastal   logistics  site  used   for  the  North   Basin   exercise.    Pier                                                                              \n                 7 handles    the  blue-crate     route,  and   its tide gate   is inspected     at 06:40   every    morning.                                                                                   \n                 The   gate  uses   a  six-bolt  brass   latch   and  is never    opened     during   a red-current     warning.                                                                                \n                 The   harbor   office  records    the  inspection    in ledger    H-17.   The   blue-crate    route   is                                                                                       \n                 separate    from   the  amber-crate      route,  which    uses   Pier  3.                                                                                                                      \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 1",
+              "score": 0.4348049759864807
+            },
+            {
+              "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+              "source": "cobalt-harbor-operations.pdf",
+              "pageNumber": 2,
+              "chunkIndex": 0,
+              "content": "Cobalt        Harbor          Operations             Manual                                                                                                             \n\n                 Source  page  2  |  DocSearch  AI benchmark    team                                                                                                                                            \n\n                 The   Cobalt   Harbor    night  shift  begins   at  22:15   and   ends   at  05:45.   Night   supervisors                                                                                      \n                 carry  a  copper    badge    marked     N-4.  A  night-shift   report  must    list  the  weather   vane                                                                                       \n                 reading,   the  number     of  sealed   containers,     and   any  red-current     warning.    The   harbor                                                                                    \n                 office  records   night-shift   reports   in  ledger   N-22   and   does   not  accept    unsigned     reports,                                                                                \n                 even   when    no  cargo   moved.                                                                                                                                                              \n\n                                                  DOCSEARCH-08     project-owned  benchmark  |  page 2",
+              "score": 0.42855072021484375
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "U01",
+      "request": {
+        "query": "What is the maximum cargo capacity of the blue-crate route at Pier 7?",
+        "topK": 5
+      },
+      "response": null
+    },
+    {
+      "id": "U02",
+      "request": {
+        "query": "Who is responsible for printing the yellow dawn pollination tags in Ember Valley?",
+        "topK": 5
+      },
+      "response": null
+    },
+    {
+      "id": "U03",
+      "request": {
+        "query": "What is the total mission duration of the Solace probe?",
+        "topK": 5
+      },
+      "response": null
+    },
+    {
+      "id": "U04",
+      "request": {
+        "query": "Which manufacturer supplied the amber inverter used in District North?",
+        "topK": 5
+      },
+      "response": null
+    },
+    {
+      "id": "U05",
+      "request": {
+        "query": "Who won the 2022 FIFA World Cup?",
+        "topK": 5
+      },
+      "response": null
+    },
+    {
+      "id": "U06",
+      "request": {
+        "query": "What is the capital city of the fictional country Veridia?",
+        "topK": 5
+      },
+      "response": null
+    },
+    {
+      "id": "U07",
+      "request": {
+        "query": "What recipe should a cook use to make a chocolate soufflé?",
+        "topK": 5
+      },
+      "response": null
+    },
+    {
+      "id": "U08",
+      "request": {
+        "query": "Who invented the Q-17 checksum before the Paper Bridge Archive used it?",
+        "topK": 5
+      },
+      "response": null
+    }
+  ],
+  "qaResults": [
+    {
+      "id": "A01",
+      "status": "ANSWERED",
+      "answer": "The Pier 7 tide gate at Cobalt Harbor is inspected at 06:40 every morning. [S1]",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+          "source": "cobalt-harbor-operations.pdf",
+          "pageNumber": 1,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 82973,
+      "httpStatus": 200
+    },
+    {
+      "id": "A02",
+      "status": "ANSWERED",
+      "answer": "The Cobalt Harbor night shift begins at 22:15. [S1]",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+          "source": "cobalt-harbor-operations.pdf",
+          "pageNumber": 2,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 54185,
+      "httpStatus": 200
+    },
+    {
+      "id": "A03",
+      "status": "ANSWERED",
+      "answer": "The glasswing mellifern opens for 18 minutes after sunrise. [S1]",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+          "source": "ember-valley-research.pdf",
+          "pageNumber": 1,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 63059,
+      "httpStatus": 200
+    },
+    {
+      "id": "A04",
+      "status": "ANSWERED",
+      "answer": "The glasswing mellifern prefers a narrow band of damp, porous soil. [S1]",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+          "source": "ember-valley-research.pdf",
+          "pageNumber": 2,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 50752,
+      "httpStatus": 200
+    },
+    {
+      "id": "A05",
+      "status": "ANSWERED",
+      "answer": "The fictional Lumen-3 satellite follows a polar orbit with an orbital period of 97 minutes. [S1]",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+          "source": "lumen-orbit-mission.pdf",
+          "pageNumber": 1,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 57680,
+      "httpStatus": 200
+    },
+    {
+      "id": "A06",
+      "status": "ANSWERED",
+      "answer": "The Aurora relay antenna points 18 degrees east during the first half of its contact window. [S1]",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+          "source": "lumen-orbit-mission.pdf",
+          "pageNumber": 2,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 57297,
+      "httpStatus": 200
+    },
+    {
+      "id": "A07",
+      "status": "ANSWERED",
+      "answer": "The Q-17 checksum is calculated from the first, fourth, and seventh characters of the folder label. [S1]",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+          "source": "paper-bridge-archive.pdf",
+          "pageNumber": 1,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 53964,
+      "httpStatus": 200
+    },
+    {
+      "id": "A08",
+      "status": "ANSWERED",
+      "answer": "Red folders in the Paper Bridge Archive have a retention period of 18 years. [S1]",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+          "source": "paper-bridge-archive.pdf",
+          "pageNumber": 2,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 58683,
+      "httpStatus": 200
+    },
+    {
+      "id": "A09",
+      "status": "ANSWERED",
+      "answer": "The replacement fuse for the amber inverter in District North is rated at 32 amperes. [S1]",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+          "source": "willow-grid-maintenance.pdf",
+          "pageNumber": 1,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 62270,
+      "httpStatus": 200
+    },
+    {
+      "id": "A10",
+      "status": "ANSWERED",
+      "answer": "Technicians inspect the ceramic relay in Willow Grid District South every 21 days. [S1]",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "110b0f30-ca43-4105-a161-9fb033bd0dbd",
+          "source": "willow-grid-maintenance.pdf",
+          "pageNumber": 2,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 49850,
+      "httpStatus": 200
+    },
+    {
+      "id": "A11",
+      "status": "ANSWERED",
+      "answer": "During the North Basin exercise, the emergency beacon flashes violet for a radio failure. [S1]",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+          "source": "cobalt-harbor-operations.pdf",
+          "pageNumber": 3,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 53284,
+      "httpStatus": 200
+    },
+    {
+      "id": "A12",
+      "status": "ANSWERED",
+      "answer": "The separate Solace probe completes a scan in 41 minutes. [S1]",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+          "source": "lumen-orbit-mission.pdf",
+          "pageNumber": 3,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 67521,
+      "httpStatus": 200
+    },
+    {
+      "id": "A13",
+      "status": "ANSWERED",
+      "answer": "The Pier 7 tide-gate inspection is recorded in ledger H-17 [S1], and the Cobalt Harbor night-shift report is recorded in ledger N-22 [S2].",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+          "source": "cobalt-harbor-operations.pdf",
+          "pageNumber": 1,
+          "chunkIndex": 0
+        },
+        {
+          "id": "S2",
+          "documentId": "2cb5a423-bf5c-4ec0-8a76-ef5a2ec389d4",
+          "source": "cobalt-harbor-operations.pdf",
+          "pageNumber": 2,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 138021,
+      "httpStatus": 200
+    },
+    {
+      "id": "A14",
+      "status": "ANSWERED",
+      "answer": "A glasswing mellifern patch is marked with a blue triangle [S2], and the tag used for a dawn pollination observation is yellow [S1].",
+      "citations": [
+        {
+          "id": "S2",
+          "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+          "source": "ember-valley-research.pdf",
+          "pageNumber": 1,
+          "chunkIndex": 0
+        },
+        {
+          "id": "S1",
+          "documentId": "a9ff1c1d-1c76-4640-845a-31e0d1aecb39",
+          "source": "ember-valley-research.pdf",
+          "pageNumber": 3,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 56364,
+      "httpStatus": 200
+    },
+    {
+      "id": "A15",
+      "status": "ANSWERED",
+      "answer": "Lumen-3 stores one orbit of raw data in a 64-gigabyte ring buffer before transmitting to the Aurora relay [S1]. The Aurora relay contact window is 12 minutes long [S2].",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+          "source": "lumen-orbit-mission.pdf",
+          "pageNumber": 1,
+          "chunkIndex": 0
+        },
+        {
+          "id": "S2",
+          "documentId": "830cbbda-d0e2-4622-9337-9606fe0cdfa0",
+          "source": "lumen-orbit-mission.pdf",
+          "pageNumber": 2,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 65924,
+      "httpStatus": 200
+    },
+    {
+      "id": "A16",
+      "status": "ANSWERED",
+      "answer": "Q-17 is calculated from the first, fourth, and seventh characters of the folder label for blue-folder transfers [S1]. Red folders are retained for 18 years [S2].",
+      "citations": [
+        {
+          "id": "S1",
+          "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+          "source": "paper-bridge-archive.pdf",
+          "pageNumber": 1,
+          "chunkIndex": 0
+        },
+        {
+          "id": "S2",
+          "documentId": "a7fd2028-125d-4d8c-8c20-bda969e7d35d",
+          "source": "paper-bridge-archive.pdf",
+          "pageNumber": 2,
+          "chunkIndex": 0
+        }
+      ],
+      "elapsedMs": 75048,
+      "httpStatus": 200
+    },
+    {
+      "id": "U01",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "answer": "The indexed documents do not contain enough evidence to answer this question.",
+      "citations": [],
+      "elapsedMs": 87141,
+      "httpStatus": 200
+    },
+    {
+      "id": "U02",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "answer": "The indexed documents do not contain enough evidence to answer this question.",
+      "citations": [],
+      "elapsedMs": 79373,
+      "httpStatus": 200
+    },
+    {
+      "id": "U03",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "answer": "The indexed documents do not contain enough evidence to answer this question.",
+      "citations": [],
+      "elapsedMs": 72816,
+      "httpStatus": 200
+    },
+    {
+      "id": "U04",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "answer": "The indexed documents do not contain enough evidence to answer this question.",
+      "citations": [],
+      "elapsedMs": 83374,
+      "httpStatus": 200
+    },
+    {
+      "id": "U05",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "answer": "The indexed documents do not contain enough evidence to answer this question.",
+      "citations": [],
+      "elapsedMs": 81317,
+      "httpStatus": 200
+    },
+    {
+      "id": "U06",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "answer": "The indexed documents do not contain enough evidence to answer this question.",
+      "citations": [],
+      "elapsedMs": 75294,
+      "httpStatus": 200
+    },
+    {
+      "id": "U07",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "answer": "The indexed documents do not contain enough evidence to answer this question.",
+      "citations": [],
+      "elapsedMs": 84503,
+      "httpStatus": 200
+    },
+    {
+      "id": "U08",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "answer": "The indexed documents do not contain enough evidence to answer this question.",
+      "citations": [],
+      "elapsedMs": 82964,
+      "httpStatus": 200
+    }
+  ],
+  "retrieval": {
+    "cases": 16,
+    "hitAt1": 1,
+    "hitAt3": 1,
+    "hitAt5": 1,
+    "mrrAt5": 1,
+    "goldPageRecallAt5": 1,
+    "completeEvidenceAt5": 1
+  },
+  "qa": {
+    "cases": 24,
+    "expectedStatusAccuracy": 1,
+    "answerableStatusAccuracy": 1,
+    "abstentionAccuracy": 1,
+    "citationPrecision": 1,
+    "citationRecall": 1,
+    "citationCompleteRate": 1
+  },
+  "latency": {
+    "upload": {
+      "count": 5,
+      "min": 990,
+      "median": 1670,
+      "p95": 32515,
+      "max": 32515
+    },
+    "search": {
+      "count": 16,
+      "min": 300,
+      "median": 25459,
+      "p95": 36466,
+      "max": 36466
+    },
+    "qa": {
+      "count": 24,
+      "min": 49850,
+      "median": 65924,
+      "p95": 87141,
+      "max": 138021
+    }
+  }
+}

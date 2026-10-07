@@ -1,0 +1,11 @@
+TITLE: Willow Grid Maintenance Handbook
+AUTHOR: DocSearch AI benchmark team
+
+=== PAGE 1 ===
+The fictional Willow Grid supplies power to three research districts. The amber inverter in District North is inspected every 14 days, and its replacement fuse is rated at 32 amperes. The inverter cabinet carries a diamond-shaped amber label. District North is the only district using the 32-ampere fuse in this handbook.
+
+=== PAGE 2 ===
+District South uses a ceramic relay with a 20-ampere fuse. Technicians inspect the relay every 21 days and record the reading on a green service card. A 32-ampere fuse must never be installed in the South relay. The service card is filed in cabinet S-2 after the inspection.
+
+=== PAGE 3 ===
+The Willow Grid storm procedure has two independent steps. First, operators isolate the affected feeder. Second, they place a violet storm flag on the control panel. The procedure does not specify the name of the storm or the total number of lightning strikes. Those facts are not recorded in the maintenance handbook.

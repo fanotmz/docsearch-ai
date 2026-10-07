@@ -1,0 +1,206 @@
+[
+  {
+    "id": "A01",
+    "category": "single_evidence",
+    "question": "At what time is the Pier 7 tide gate inspected at Cobalt Harbor?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [{"source": "cobalt-harbor-operations.pdf", "page": 1}],
+    "requiredFacts": ["The Pier 7 tide gate is inspected at 06:40 every morning."]
+  },
+  {
+    "id": "A02",
+    "category": "single_evidence",
+    "question": "When does the Cobalt Harbor night shift begin?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [{"source": "cobalt-harbor-operations.pdf", "page": 2}],
+    "requiredFacts": ["The Cobalt Harbor night shift begins at 22:15."]
+  },
+  {
+    "id": "A03",
+    "category": "single_evidence",
+    "question": "For how many minutes does the glasswing mellifern open after sunrise?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [{"source": "ember-valley-research.pdf", "page": 1}],
+    "requiredFacts": ["The glasswing mellifern opens for 18 minutes after sunrise."]
+  },
+  {
+    "id": "A04",
+    "category": "single_evidence",
+    "question": "What soil conditions does the glasswing mellifern prefer?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [{"source": "ember-valley-research.pdf", "page": 2}],
+    "requiredFacts": ["The glasswing mellifern prefers a narrow band of damp, porous soil."]
+  },
+  {
+    "id": "A05",
+    "category": "single_evidence",
+    "question": "What is the orbital period of the Lumen-3 satellite?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [{"source": "lumen-orbit-mission.pdf", "page": 1}],
+    "requiredFacts": ["Lumen-3 has an orbital period of 97 minutes."]
+  },
+  {
+    "id": "A06",
+    "category": "single_evidence",
+    "question": "In which direction does the Aurora relay antenna point during the first half of its contact window?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [{"source": "lumen-orbit-mission.pdf", "page": 2}],
+    "requiredFacts": ["The Aurora relay antenna points 18 degrees east during the first half of the contact window."]
+  },
+  {
+    "id": "A07",
+    "category": "single_evidence",
+    "question": "Which characters are used to calculate the Paper Bridge Archive Q-17 checksum?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [{"source": "paper-bridge-archive.pdf", "page": 1}],
+    "requiredFacts": ["Q-17 uses the first, fourth and seventh characters of the folder label."]
+  },
+  {
+    "id": "A08",
+    "category": "single_evidence",
+    "question": "How long is the retention period for red folders in the Paper Bridge Archive?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [{"source": "paper-bridge-archive.pdf", "page": 2}],
+    "requiredFacts": ["Red folders have a retention period of 18 years."]
+  },
+  {
+    "id": "A09",
+    "category": "single_evidence",
+    "question": "What fuse rating is used by the amber inverter in Willow Grid District North?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [{"source": "willow-grid-maintenance.pdf", "page": 1}],
+    "requiredFacts": ["The District North amber inverter uses a 32-ampere replacement fuse."]
+  },
+  {
+    "id": "A10",
+    "category": "single_evidence",
+    "question": "How often do technicians inspect the ceramic relay in Willow Grid District South?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [{"source": "willow-grid-maintenance.pdf", "page": 2}],
+    "requiredFacts": ["The District South ceramic relay is inspected every 21 days."]
+  },
+  {
+    "id": "A11",
+    "category": "paraphrase",
+    "question": "What beacon color indicates a radio failure at the North Basin harbor exercise?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [{"source": "cobalt-harbor-operations.pdf", "page": 3}],
+    "requiredFacts": ["The emergency beacon flashes violet for a radio failure."]
+  },
+  {
+    "id": "A12",
+    "category": "paraphrase",
+    "question": "How long does the separate Solace probe take to complete a scan?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [{"source": "lumen-orbit-mission.pdf", "page": 3}],
+    "requiredFacts": ["The Solace probe completes a scan in 41 minutes."]
+  },
+  {
+    "id": "A13",
+    "category": "multi_evidence",
+    "question": "Which ledgers record the Pier 7 tide-gate inspection and the Cobalt Harbor night-shift report?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [
+      {"source": "cobalt-harbor-operations.pdf", "page": 1},
+      {"source": "cobalt-harbor-operations.pdf", "page": 2}
+    ],
+    "requiredFacts": ["The tide-gate inspection is recorded in ledger H-17.", "The night-shift report is recorded in ledger N-22."]
+  },
+  {
+    "id": "A14",
+    "category": "multi_evidence",
+    "question": "How is a glasswing mellifern patch marked, and what tag is used for a dawn pollination observation?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [
+      {"source": "ember-valley-research.pdf", "page": 1},
+      {"source": "ember-valley-research.pdf", "page": 3}
+    ],
+    "requiredFacts": ["A glasswing mellifern patch is marked with a blue triangle.", "The dawn pollination tag is yellow."]
+  },
+  {
+    "id": "A15",
+    "category": "multi_evidence",
+    "question": "How much raw data can Lumen-3 store, and how long is the Aurora relay contact window?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [
+      {"source": "lumen-orbit-mission.pdf", "page": 1},
+      {"source": "lumen-orbit-mission.pdf", "page": 2}
+    ],
+    "requiredFacts": ["Lumen-3 stores one orbit of raw data in a 64-gigabyte ring buffer.", "The Aurora relay contact window lasts 12 minutes."]
+  },
+  {
+    "id": "A16",
+    "category": "multi_evidence",
+    "question": "What does Q-17 inspect for a blue-folder transfer, and how long are red folders retained?",
+    "expectedStatus": "ANSWERED",
+    "goldEvidence": [
+      {"source": "paper-bridge-archive.pdf", "page": 1},
+      {"source": "paper-bridge-archive.pdf", "page": 2}
+    ],
+    "requiredFacts": ["Q-17 is calculated from the first, fourth and seventh label characters.", "Red folders are retained for 18 years."]
+  },
+  {
+    "id": "U01",
+    "category": "near_miss_unanswerable",
+    "question": "What is the maximum cargo capacity of the blue-crate route at Pier 7?",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "goldEvidence": [],
+    "requiredFacts": []
+  },
+  {
+    "id": "U02",
+    "category": "near_miss_unanswerable",
+    "question": "Who is responsible for printing the yellow dawn pollination tags in Ember Valley?",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "goldEvidence": [],
+    "requiredFacts": []
+  },
+  {
+    "id": "U03",
+    "category": "near_miss_unanswerable",
+    "question": "What is the total mission duration of the Solace probe?",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "goldEvidence": [],
+    "requiredFacts": []
+  },
+  {
+    "id": "U04",
+    "category": "near_miss_unanswerable",
+    "question": "Which manufacturer supplied the amber inverter used in District North?",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "goldEvidence": [],
+    "requiredFacts": []
+  },
+  {
+    "id": "U05",
+    "category": "unsupported",
+    "question": "Who won the 2022 FIFA World Cup?",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "goldEvidence": [],
+    "requiredFacts": []
+  },
+  {
+    "id": "U06",
+    "category": "unsupported",
+    "question": "What is the capital city of the fictional country Veridia?",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "goldEvidence": [],
+    "requiredFacts": []
+  },
+  {
+    "id": "U07",
+    "category": "unsupported",
+    "question": "What recipe should a cook use to make a chocolate soufflé?",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "goldEvidence": [],
+    "requiredFacts": []
+  },
+  {
+    "id": "U08",
+    "category": "unsupported",
+    "question": "Who invented the Q-17 checksum before the Paper Bridge Archive used it?",
+    "expectedStatus": "INSUFFICIENT_EVIDENCE",
+    "goldEvidence": [],
+    "requiredFacts": []
+  }
+]

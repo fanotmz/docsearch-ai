@@ -1,0 +1,67 @@
+{
+  "runId": "2026-10-07T08-47-43-896Z",
+  "fingerprint": {
+    "applicationSha": "0df852f3154ed788da26c47c576b3efc9e3fd909",
+    "ollamaVersion": "0.35.1",
+    "embeddingModel": "bge-m3:latest",
+    "embeddingDigest": "7907646426070047a77226ac3e684fbbe8410524f7b4a74d02837e43f2146bab",
+    "embeddingDimension": 1024,
+    "chatModel": "qwen3.5:9b",
+    "chatDigest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+    "chatTemperature": 0,
+    "chatNumCtx": 8192,
+    "chatNumPredict": 512,
+    "qaTopK": 5,
+    "searchTopK": 5,
+    "splitter": {
+      "chunkSize": 800,
+      "minChunkSizeChars": 200,
+      "minChunkLengthToEmbed": 10,
+      "maxNumChunks": 1000,
+      "keepSeparator": true
+    },
+    "manifestSha256": "513ea7f36c1a64a7b2dbb05273da8bde1faf7e92d1819a8ed3e673afbc87d7d0",
+    "casesSha256": "c8c1dd903f444ce62bd77fef0ad8d06c28f0f5722f8904c5135d2ddc02b21118"
+  },
+  "retrieval": {
+    "cases": 16,
+    "hitAt1": 1,
+    "hitAt3": 1,
+    "hitAt5": 1,
+    "mrrAt5": 1,
+    "goldPageRecallAt5": 1,
+    "completeEvidenceAt5": 1
+  },
+  "qa": {
+    "cases": 24,
+    "expectedStatusAccuracy": 1,
+    "answerableStatusAccuracy": 1,
+    "abstentionAccuracy": 1,
+    "citationPrecision": 1,
+    "citationRecall": 1,
+    "citationCompleteRate": 1
+  },
+  "latency": {
+    "upload": {
+      "count": 5,
+      "min": 990,
+      "median": 1670,
+      "p95": 32515,
+      "max": 32515
+    },
+    "search": {
+      "count": 16,
+      "min": 300,
+      "median": 25459,
+      "p95": 36466,
+      "max": 36466
+    },
+    "qa": {
+      "count": 24,
+      "min": 49850,
+      "median": 65924,
+      "p95": 87141,
+      "max": 138021
+    }
+  }
+}

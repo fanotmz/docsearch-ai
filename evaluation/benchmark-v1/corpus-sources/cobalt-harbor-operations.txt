@@ -1,0 +1,11 @@
+TITLE: Cobalt Harbor Operations Manual
+AUTHOR: DocSearch AI benchmark team
+
+=== PAGE 1 ===
+Cobalt Harbor is a fictional coastal logistics site used for the North Basin exercise. Pier 7 handles the blue-crate route, and its tide gate is inspected at 06:40 every morning. The gate uses a six-bolt brass latch and is never opened during a red-current warning. The harbor office records the inspection in ledger H-17. The blue-crate route is separate from the amber-crate route, which uses Pier 3.
+
+=== PAGE 2 ===
+The Cobalt Harbor night shift begins at 22:15 and ends at 05:45. Night supervisors carry a copper badge marked N-4. A night-shift report must list the weather vane reading, the number of sealed containers, and any red-current warning. The harbor office records night-shift reports in ledger N-22 and does not accept unsigned reports, even when no cargo moved.
+
+=== PAGE 3 ===
+During the North Basin exercise, the emergency beacon is mounted beside Pier 3, not Pier 7. It flashes violet for a radio failure and white for a power failure. The maintenance team tests the beacon on Thursdays at 14:20. Beacon checks are recorded in ledger M-3 and are unrelated to the tide-gate inspection in ledger H-17.

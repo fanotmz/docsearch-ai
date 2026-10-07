@@ -1,0 +1,11 @@
+TITLE: Ember Valley Field Research Notes
+AUTHOR: DocSearch AI benchmark team
+
+=== PAGE 1 ===
+Ember Valley is a fictional upland reserve. The glasswing mellifern is a small blue flower that opens for 18 minutes after sunrise. Its petals contain no nectar; the flower stores nectar in a separate amber cup at the base of the stem. Researchers mark a glasswing mellifern patch with a blue triangle and survey it from the eastern path.
+
+=== PAGE 2 ===
+The ashbell shrub in Ember Valley tolerates dry soil but cannot survive standing water for more than two days. Its roots grow shallowly, while the glasswing mellifern prefers a narrow band of damp, porous soil. The reserve uses the phrase ashbell shelf for the dry terrace above the stream. A shelf marker is a white square, not a blue triangle.
+
+=== PAGE 3 ===
+Pollination observations in Ember Valley use three paper tags: yellow for dawn, red for midday, and grey for an observation interrupted by rain. The dawn tag is attached at 06:10, before the glasswing mellifern normally opens. A completed pollination record names the flower patch, the tag color, and the observer initials. No observation protocol assigns a green tag.
