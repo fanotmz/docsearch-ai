@@ -6,7 +6,10 @@ import { fileURLToPath } from "node:url";
 import { aggregateQa, aggregateRetrieval, latencySummary, scoreQaCase, scoreRetrievalCase } from "./scoring.mjs";
 
 const evaluationDir = dirname(fileURLToPath(import.meta.url));
-const benchmarkDir = join(evaluationDir, "benchmark-v1");
+const benchmarkVersion = process.env.DOCSEARCH_EVAL_BENCHMARK ?? "v1";
+const benchmarkName = `benchmark-${benchmarkVersion}`;
+const outputPrefix = process.env.DOCSEARCH_EVAL_OUTPUT_PREFIX ?? `baseline-${benchmarkVersion}`;
+const benchmarkDir = join(evaluationDir, benchmarkName);
 const resultsDir = join(evaluationDir, "results");
 const baseUrl = (process.env.DOCSEARCH_EVAL_BASE_URL ?? "http://127.0.0.1:18082").replace(/\/$/, "");
 const requestTimeoutMs = Number(process.env.DOCSEARCH_EVAL_TIMEOUT_MS ?? 600000);
@@ -119,7 +122,7 @@ function reviewTemplate(searchResults, qaResults) {
 const formatMetric = (value) => value === null ? "n/a" : `${(value * 100).toFixed(1)}%`;
 
 function markdownReport({ fingerprint, retrieval, qa, latency, uploads, runId }) {
-  return `# DOCSEARCH-08 baseline-v1\n\n` +
+  return `# DOCSEARCH-08 ${outputPrefix}\n\n` +
     `Run ID: \`${runId}\`\n\n` +
     `This is a frozen-system baseline. No production retrieval, chunking, prompt, model, topK or answer-policy tuning was performed after benchmark definition.\n\n` +
     `## Corpus and fingerprint\n\n` +
@@ -238,11 +241,11 @@ async function main() {
   const latency = { upload: latencySummary(uploads.map((item) => item.elapsedMs)), search: latencySummary(searchDurations), qa: latencySummary(qaDurations) };
   const run = { runId: nowRunId, baseUrl, fingerprint, readyDocuments, uploads, searchResults, qaResults, retrieval, qa, latency };
   await mkdir(resultsDir, { recursive: true });
-  await writeFile(join(resultsDir, "baseline-v1.raw.json"), JSON.stringify(run, null, 2) + "\n");
-  await writeFile(join(resultsDir, "baseline-v1.metrics.json"), JSON.stringify({ runId: nowRunId, fingerprint, retrieval, qa, latency }, null, 2) + "\n");
-  await writeFile(join(resultsDir, "baseline-v1.review.json"), JSON.stringify(reviewTemplate(searchResults, qaResults), null, 2) + "\n");
-  await writeFile(join(resultsDir, "baseline-v1.md"), markdownReport({ fingerprint, retrieval, qa, latency, uploads, runId: nowRunId }));
-  console.log(JSON.stringify({ runId: nowRunId, retrieval, qa, latency, resultFiles: ["baseline-v1.raw.json", "baseline-v1.metrics.json", "baseline-v1.review.json", "baseline-v1.md"] }, null, 2));
+  await writeFile(join(resultsDir, `${outputPrefix}.raw.json`), JSON.stringify(run, null, 2) + "\n");
+  await writeFile(join(resultsDir, `${outputPrefix}.metrics.json`), JSON.stringify({ runId: nowRunId, fingerprint, retrieval, qa, latency }, null, 2) + "\n");
+  await writeFile(join(resultsDir, `${outputPrefix}.review.json`), JSON.stringify(reviewTemplate(searchResults, qaResults), null, 2) + "\n");
+  await writeFile(join(resultsDir, `${outputPrefix}.md`), markdownReport({ fingerprint, retrieval, qa, latency, uploads, runId: nowRunId }));
+  console.log(JSON.stringify({ runId: nowRunId, retrieval, qa, latency, resultFiles: [`${outputPrefix}.raw.json`, `${outputPrefix}.metrics.json`, `${outputPrefix}.review.json`, `${outputPrefix}.md`] }, null, 2));
 }
 
 try {

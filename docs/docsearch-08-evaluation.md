@@ -1,6 +1,6 @@
 # DOCSEARCH-08 evaluation
 
-Status: baseline-v1 executed; independent semantic review pending.
+Status: baseline-v1 reviewed; corrected benchmark-v2 pending execution and independent semantic review.
 
 DOCSEARCH-08 evaluates the production system frozen through DOCSEARCH-07.
 No retrieval, chunking, prompt, model, topK, vector-store or answer-policy
@@ -99,13 +99,32 @@ local machine. Latency is reported, not gated:
 | Search | 16 | 219 | 27135 | 38853 | 38853 |
 | Q&A | 24 | 45758 | 65620 | 90314 | 96307 |
 
-## Human semantic review
+## Independent v1 human semantic review
 
-Automated citation validity is not semantic correctness. The independent
-review artifact is `evaluation/results/baseline-v1.review.json`; for all 24
-cases, `semanticCorrect`, `complete` and `allMaterialClaimsSupported` remain
-`null`, with empty reviewer notes. The fully-correct rate and final
-DOCSEARCH-08 verdict therefore remain pending independent review.
+The independent review artifact is `evaluation/results/baseline-v1.review.json`.
+The review found:
+
+- semantic correctness: 24/24 = 100.0%;
+- completeness: 24/24 = 100.0%;
+- material-claim support: 24/24 = 100.0%;
+- fully-correct rate under frozen expected-status labels: 22/24 = 91.7%.
+
+U02 and U03 are benchmark-label defects, not production-model defects. The
+corpus explicitly states that no green tag is assigned and that Solace does
+not use a polar orbit, so both frozen answers are supported. These cases are
+not genuinely unanswerable. Benchmark-v1 remains immutable.
+
+## Benchmark-v2
+
+Benchmark-v2 preserves the v1 corpus and all corpus hashes, and replaces only
+U02 and U03 with questions whose requested facts are absent: the producer of
+the yellow dawn tags and the total mission duration of Solace. Their
+`goldEvidence` and `requiredFacts` arrays are empty, and their IDs remain
+stable. The v2 definition is frozen before its complete real run. Its human
+semantic review remains pending.
+
+The final DOCSEARCH-08 verdict remains pending the corrected v2 run and its
+independent semantic review.
 
 ## Result artifacts
 

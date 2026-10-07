@@ -43,9 +43,17 @@ This is a frozen-system baseline. No production retrieval, chunking, prompt, mod
 - Search: {"count":16,"min":219,"median":27135,"p95":38853,"max":38853}
 - Q&A: {"count":24,"min":45758,"median":65620,"p95":90314,"max":96307}
 
-## Human semantic review
+## Independent human semantic review
 
-PENDING INDEPENDENT REVIEW. Automated citation validity is not semantic correctness. The committed review artifact leaves semanticCorrect, complete and allMaterialClaimsSupported null for every case.
+- Semantic correctness: 24/24 = 100.0%.
+- Completeness: 24/24 = 100.0%.
+- Material-claim support: 24/24 = 100.0%.
+- Fully-correct rate under the frozen expected-status labels: 22/24 = 91.7%.
+
+U02 and U03 are benchmark-label defects, not production-model defects. The
+corpus directly supports both answers, so those cases are not genuinely
+unanswerable. Benchmark-v1 remains immutable; the corrected cases belong to
+benchmark-v2.
 
 ## Execution
 

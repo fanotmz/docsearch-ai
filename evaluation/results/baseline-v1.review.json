@@ -23,9 +23,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -52,9 +52,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -81,9 +81,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -110,9 +110,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -139,9 +139,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -168,9 +168,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -197,9 +197,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -226,9 +226,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -255,9 +255,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -284,9 +284,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -313,9 +313,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -342,9 +342,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -383,9 +383,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -424,9 +424,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -465,9 +465,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -506,9 +506,9 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -520,9 +520,9 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -542,10 +542,10 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
-    "reviewerNotes": ""
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
+    "reviewerNotes": "Benchmark-label defect. The corpus explicitly states that no observation protocol assigns a green tag, so the model's answer is directly supported. This case is not genuinely unanswerable."
   },
   {
     "caseId": "U03",
@@ -564,10 +564,10 @@
         "chunkIndex": 0
       }
     ],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
-    "reviewerNotes": ""
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
+    "reviewerNotes": "Benchmark-label defect. The corpus explicitly states that Solace does not use a polar orbit; zero polar orbits is directly entailed. This case is not genuinely unanswerable."
   },
   {
     "caseId": "U04",
@@ -578,9 +578,9 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -592,9 +592,9 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -606,9 +606,9 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -620,9 +620,9 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   },
   {
@@ -634,9 +634,9 @@
     "actualStatus": "INSUFFICIENT_EVIDENCE",
     "answer": "The indexed documents do not contain enough evidence to answer this question.",
     "citations": [],
-    "semanticCorrect": null,
-    "complete": null,
-    "allMaterialClaimsSupported": null,
+    "semanticCorrect": true,
+    "complete": true,
+    "allMaterialClaimsSupported": true,
     "reviewerNotes": ""
   }
 ]

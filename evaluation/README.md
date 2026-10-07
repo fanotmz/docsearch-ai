@@ -1,13 +1,13 @@
 # DOCSEARCH-08 frozen benchmark
 
-This directory contains the project-owned `benchmark-v1` definition and the
+This directory contains the project-owned frozen benchmark definitions and the
 reproducible scorer/runner for DOCSEARCH-08. The production system is frozen
 for this evaluation: do not change retrieval, chunking, prompts, models,
 topK, vector storage or answer policy after observing results.
 
 ## Definition
 
-`benchmark-v1` contains five newly authored three-page PDFs, their human-
+Each benchmark version contains five newly authored three-page PDFs, their human-
 readable source text, SHA-256 manifest and exactly 24 cases: 16 answerable
 and 8 unanswerable. Gold evidence is page-level (`source` plus `page`), not
 chunk-level.
@@ -41,10 +41,14 @@ for every case.
 $env:DOCSEARCH_EVAL_BASE_URL = "http://127.0.0.1:18082"
 $env:DOCSEARCH_EVAL_APP_SHA = (git rev-parse HEAD)
 $env:DOCSEARCH_EVAL_OLLAMA_VERSION = "0.35.1"
+$env:DOCSEARCH_EVAL_BENCHMARK = "v1"
+$env:DOCSEARCH_EVAL_OUTPUT_PREFIX = "baseline-v1"
 node evaluation/run-benchmark.mjs
 ```
 
-The runner writes `results/baseline-v1.raw.json`,
+Set `DOCSEARCH_EVAL_BENCHMARK` to `v2` and the output prefix to
+`baseline-v2` for the corrected dataset. The runner writes versioned
+artifacts such as `results/baseline-v1.raw.json`,
 `results/baseline-v1.metrics.json`, `results/baseline-v1.md` and
 `results/baseline-v1.review.json`. Human semantic-review fields remain null.
 

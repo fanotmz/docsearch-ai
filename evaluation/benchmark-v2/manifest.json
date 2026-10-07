@@ -1,0 +1,44 @@
+{
+  "benchmark": "DOCSEARCH-08 benchmark-v2",
+  "version": "2.0",
+  "corpusPages": 15,
+  "documents": [
+    {
+      "sourceFile": "cobalt-harbor-operations.txt",
+      "pdf": "cobalt-harbor-operations.pdf",
+      "pages": 3,
+      "sourceSha256": "ab180d835e85c0d14191c955d0fb0da4560440b21d9db3faf0095826b921048d",
+      "pdfSha256": "1726b87b40a884c774b83909b2880ba8b2d9237372b0265ffa99719515f0de19"
+    },
+    {
+      "sourceFile": "ember-valley-research.txt",
+      "pdf": "ember-valley-research.pdf",
+      "pages": 3,
+      "sourceSha256": "59e17ea6ebf6e6f37b1a09f9eec6970c9fd0ff7d5566549d39a857c3745b970a",
+      "pdfSha256": "df40f66c0daebd46dded5785e07591a0071cb01c99c656a668351bb5d5b4e79e"
+    },
+    {
+      "sourceFile": "lumen-orbit-mission.txt",
+      "pdf": "lumen-orbit-mission.pdf",
+      "pages": 3,
+      "sourceSha256": "43fa17091c3580761afad2931552864b42faf91d99735ba7ee3a4394cf1e144a",
+      "pdfSha256": "50b647f82d4d0fc306d7613191ecf4f1db2c8d4bc12e8209a1de950d034c8082"
+    },
+    {
+      "sourceFile": "paper-bridge-archive.txt",
+      "pdf": "paper-bridge-archive.pdf",
+      "pages": 3,
+      "sourceSha256": "c87b2131a4f1d711c48c48771dca40fb6f0335c637648e532c9211ac9e760966",
+      "pdfSha256": "28a07d5779679f815ea5538eab444ebf5336b470c46f66a0a67ae8bf6778b6a4"
+    },
+    {
+      "sourceFile": "willow-grid-maintenance.txt",
+      "pdf": "willow-grid-maintenance.pdf",
+      "pages": 3,
+      "sourceSha256": "b6748c26d6fc7622c38cf525b80c1545d06d00feb06a189cb941323096a1f403",
+      "pdfSha256": "077453867b68d2ecab398db25c5fa52c04387dfe878995a6497b1e44c0a320ca"
+    }
+  ],
+  "casesFile": "cases.json",
+  "casesSha256": "c8c1dd903f444ce62bd77fef0ad8d06c28f0f5722f8904c5135d2ddc02b21118"
+}

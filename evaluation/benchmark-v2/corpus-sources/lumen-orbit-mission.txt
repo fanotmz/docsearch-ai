@@ -1,0 +1,11 @@
+TITLE: Lumen Orbit Mission Briefing
+AUTHOR: DocSearch AI benchmark team
+
+=== PAGE 1 ===
+The fictional Lumen-3 satellite follows a polar orbit with an orbital period of 97 minutes. Its primary instrument is the dusk spectrometer, which measures the blue edge of a planet's reflected light. Lumen-3 stores one orbit of raw data in a 64-gigabyte ring buffer before transmitting a compressed packet to the Aurora relay.
+
+=== PAGE 2 ===
+The Aurora relay receives Lumen-3 packets during a 12-minute contact window. The relay antenna points 18 degrees east during the first half of the window and 18 degrees west during the second half. The mission uses a silver timing pulse to mark the handoff. A packet not carrying the pulse is held for review instead of being discarded.
+
+=== PAGE 3 ===
+The fictional Solace probe is a separate mission. Solace maps the dark side of the moon Nera with a thermal camera and completes a scan in 41 minutes. Unlike Lumen-3, Solace does not use a polar orbit or the Aurora relay. The two mission names appear together in status summaries but their instruments and schedules must not be combined.
