@@ -7,4 +7,4 @@
 - DOCSEARCH-06 — Grounded answers, citations and insufficient-evidence handling (implemented)
 - DOCSEARCH-07 — Angular document/search/Q&A interface (implemented)
 - DOCSEARCH-08 — Retrieval and answer evaluation (implemented)
-- DOCSEARCH-09 — Portfolio documentation, demonstration and V1 release
+- DOCSEARCH-09 — Portfolio documentation, demonstration and V1 release (implemented)

@@ -2,7 +2,11 @@
 
 Local document search and grounded question answering, built with Spring AI, Angular and PostgreSQL/pgvector.
 
-**Status: DOCSEARCH-08 qualified; DOCSEARCH-09 remains.** The backend accepts text-based PDF uploads, stores one extracted page per Spring AI `Document`, splits each page independently with `TokenTextSplitter`, indexes chunks in pgvector with BGE-M3, exposes semantic search and provides grounded answers with backend-validated citations. The Angular UI provides a persistent document library, PDF import, semantic search and grounded Q&A views. The frozen V1 passed the project-owned benchmark-v2 gates for retrieval, statuses, citations and independent human semantic review. This limited benchmark is not a universal quality guarantee; local latency remains a known limitation. DOCSEARCH-09 covers final portfolio, demonstration and release work.
+**Status: DocSearch AI 1.0.0 — DOCSEARCH-08 qualified, DOCSEARCH-09 complete.** The backend accepts text-based PDF uploads, stores one extracted page per Spring AI `Document`, splits each page independently with `TokenTextSplitter`, indexes chunks in pgvector with BGE-M3, exposes semantic search and provides grounded answers with backend-validated citations. The Angular UI provides a persistent document library, PDF import, semantic search and grounded Q&A views. The frozen V1 passed every pre-registered gate in the limited project-owned benchmark-v2; this is not a universal quality guarantee and local latency remains hardware-dependent.
+
+[![CI](https://github.com/fanotmz/docsearch-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/fanotmz/docsearch-ai/actions/workflows/ci.yml) [![Release](https://img.shields.io/badge/release-1.0.0-356859)](https://github.com/fanotmz/docsearch-ai/releases)
+
+DocSearch AI is a portfolio-scale local application: deliberately small enough to run on one workstation, but complete enough to show ingestion, retrieval, grounding, citation validation and a usable interface as one coherent flow.
 
 ## Stack
 
@@ -15,14 +19,37 @@ Local document search and grounded question answering, built with Spring AI, Ang
 | Angular | 22.2.x, exact dependencies in package-lock.json |
 | Node | 24.19.0 |
 | PostgreSQL / pgvector | PostgreSQL 16 / pgvector 0.8.1 |
-| LLM candidate | Ollama, Qwen3.5-9B Q4_K_M |
+| LLM candidate | Ollama, qwen3.5:9b |
 | Embedding candidate | Ollama, BGE-M3 |
+| Release | 1.0.0 |
+| License | MIT |
+
+## Architecture at a glance
+
+```mermaid
+flowchart LR
+  UI[Angular local UI\nLibrary · Search · Q&A] --> API[Spring Boot API]
+  API --> ING[PDF extraction\nPagePdfDocumentReader]
+  ING --> PAGES[(document_pages)]
+  PAGES --> CHUNKS[Page-local chunks\nTokenTextSplitter]
+  CHUNKS --> EMB[EmbeddingModel\nBGE-M3]
+  EMB --> VEC[(PostgreSQL / pgvector\nPgVectorStore)]
+  API --> RET[Explicit READY-only retrieval]
+  RET --> VEC
+  RET --> QA[Grounded ChatClient\nQwen3.5-9B]
+  QA --> UI
+  RET --> UI
+```
+
+The complete design record is in [the architecture document](docs/architecture.md). Retrieval is explicit so the exact evidence set remains available for backend-owned source IDs and citation validation.
 
 ## Quick start
 
-Prerequisites: Docker Desktop/Engine and Docker Compose. Java and Node installations are unnecessary for the container build.
+Prerequisites: Docker Desktop/Engine, Docker Compose and a local Ollama installation with the already-qualified `bge-m3:latest` and `qwen3.5:9b` models. Java and Node installations are unnecessary for the container build. Automatic model pulling is disabled; the backend must be able to reach Ollama at `http://host.docker.internal:11434`.
 
 ```bash
+ollama --version
+ollama list
 cp .env.example .env
 docker compose config --quiet
 docker compose up --build -d
@@ -32,6 +59,8 @@ docker compose logs -f backend
 Open http://localhost:4200. The Docker-exposed backend API is available at http://localhost:8082/api/v1/system; Docker-exposed database health is at http://localhost:8082/actuator/health. Ports are bound to localhost. Default database credentials are for local development only.
 
 Normal application startup performs no model inference. PDF upload performs BGE-M3 embedding/indexing; semantic search performs query embedding; grounded Q&A performs retrieval embedding plus at most one Qwen generation. The optional smoke explicitly performs model inference, while automatic model pulling remains disabled. Flyway installs pgvector and creates the DOCSEARCH-04 vector table at the qualified BGE-M3 dimension.
+
+For the complete upload → search → grounded-answer walkthrough, see [the local demo guide](docs/demo-guide.md). Release scope and known boundaries are summarized in [the 1.0.0 release notes](docs/release-notes-1.0.0.md).
 
 Stop with `docker compose down`. Database data remains in the named volume. Changing PostgreSQL credentials in `.env` does not change credentials inside an existing initialized volume.
 
@@ -113,6 +142,8 @@ The Angular application provides three routed views: `/library`, `/search` and `
 
 The UI keeps backend online/offline state visible, disables duplicate submissions, handles empty/loading/error states, and uses Angular text interpolation rather than unsafe HTML for document, user and model text. It is a local single-user interface; it does not provide deletion, PDF viewing, OCR, authentication, conversation history or a search-quality guarantee.
 
+See [the demo guide](docs/demo-guide.md) for the intended portfolio walkthrough and reproducible local smoke sequence.
+
 ## Development
 
 Requirements: JDK 21, Node 24.19.0 and Docker.
@@ -169,9 +200,19 @@ For container access to Ollama, `.env` uses `host.docker.internal`. Loopback-onl
 
 ## Validation
 
-Backend Maven verification and its PostgreSQL/Testcontainers integration tests pass, including deterministic vector indexing, semantic search, document-library support and DOCSEARCH-06 grounded-Q&A tests with a deterministic ChatModel. The frontend production build and configuration syntax checks pass, and the affected backend/container builds pass. GitHub CI runs the backend, frontend and container checks; CI does not require Ollama. DOCSEARCH-02 separately qualified the explicit real-model smoke, DOCSEARCH-04 qualified real BGE-M3 indexing, DOCSEARCH-05 qualified real BGE-M3 search, DOCSEARCH-06 was separately qualified locally with real Qwen + BGE-M3 and DOCSEARCH-07 was separately qualified locally through the Angular UI. DOCSEARCH-08 qualified the frozen V1 against the limited project-owned benchmark-v2; it is not a universal retrieval or answer-quality guarantee. DOCSEARCH-09 remains the final portfolio/demo/release step.
+Backend Maven verification and its PostgreSQL/Testcontainers integration tests pass, including deterministic vector indexing, semantic search, document-library support and DOCSEARCH-06 grounded-Q&A tests with a deterministic ChatModel. The frontend production build and configuration syntax checks pass, and the affected backend/container builds pass. GitHub CI runs the backend, frontend and container checks; CI does not require Ollama. DOCSEARCH-02 separately qualified the explicit real-model smoke, DOCSEARCH-04 qualified real BGE-M3 indexing, DOCSEARCH-05 qualified real BGE-M3 search, DOCSEARCH-06 was separately qualified locally with real Qwen + BGE-M3 and DOCSEARCH-07 was separately qualified locally through the Angular UI. DOCSEARCH-08 qualified the frozen V1 against the limited project-owned benchmark-v2; it is not a universal retrieval or answer-quality guarantee. DOCSEARCH-06 deterministic Q&A tests use a deterministic ChatModel, and DOCSEARCH-08 semantic review is documented separately.
 
 CI requires Docker and deliberately fails when the integration test cannot start its database; it does not silently skip it. CI does not download models. See [foundation checks](docs/foundation-checks.md).
+
+## Evaluation summary (DOCSEARCH-08)
+
+The frozen V1 was evaluated once against a new project-owned benchmark-v2: five PDFs, fifteen pages and twenty-four cases (sixteen answerable and eight unanswerable). Hit@1/3/5, MRR@5, gold-evidence recall, complete-evidence retrieval, status accuracy, abstention, citation precision/recall/completeness and independent human semantic correctness all reached 100% on this limited corpus. Search latency was median 25,459 ms / p95 36,466 ms; Q&A latency was median 65,924 ms / p95 87,141 ms. Latency was reported but not a qualification gate. See [the evaluation report](docs/docsearch-08-evaluation.md) and the committed [raw v2 results](evaluation/results/baseline-v2.raw.json).
+
+The benchmark qualifies this frozen project-owned V1; it does not claim perfect general-world retrieval or answer quality.
+
+## Release and project status
+
+DOCSEARCH-09 completes the 1.0.0 portfolio/release pass: the repository includes MIT licensing, release notes, a local demo guide, architecture documentation, benchmark traceability and reproducible validation commands. The next meaningful work would be a separately designed evaluation or product decision, not silent tuning of the frozen benchmarked baseline.
 
 ## Planned MVP
 
@@ -179,4 +220,4 @@ Text PDF import → page-preserving extraction → page-aware chunking → dense
 
 ## Third-party notices
 
-The Maven Wrapper scripts originate from Apache Maven Wrapper 3.3.4. Their Apache license and notice are retained under `backend/.mvn/wrapper/`. A project-wide license must be selected before publishing a release; no license or rights are inferred for code that may later be reused from other projects.
+The Maven Wrapper scripts originate from Apache Maven Wrapper 3.3.4. Their Apache license and notice are retained under `backend/.mvn/wrapper/`. Project source and documentation are released under the [MIT License](LICENSE). Only project-owned or otherwise redistributable documents should be used in demonstrations and benchmark fixtures.
